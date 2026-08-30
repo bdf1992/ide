@@ -6,10 +6,33 @@ This repository also contains the agentic-language research system. Changes to l
 
 ## Before changing code
 
-1. Read `README.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, `RESEARCH.md`, and `PARITY.md`.
-2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, projection extension, normalization extension, kernel extension, parity maintenance, or genuinely new UI.
+1. Read `README.md`, `STATUS.md`, `architecture/README.md`, `architecture/TYPOLOGY.md`, `architecture/TOPOLOGY.md`, `architecture/AI-NATIVE.md`, `PARITY.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
+2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, projection extension, normalization extension, kernel extension, architecture/status change, or genuinely new UI.
 3. Prefer the smallest layer that can solve the problem.
 4. Check whether Monaco, xterm.js, Pyodide, or an existing browser API already provides the capability.
+5. Check `STATUS.md` before assuming a named directory or architecture component is implemented.
+
+## Architecture and status discipline
+
+The architecture skeleton is allowed to describe future boundaries before those boundaries are implemented.
+
+When adding or changing a stub:
+
+- state what the concern owns;
+- state what it explicitly does not own;
+- identify where current working behavior actually lives;
+- identify the promotion trigger;
+- keep its `STATUS.md` entry accurate.
+
+Do not move code merely to make the directory tree resemble the architecture diagram.
+
+Use the status words literally:
+
+- **IMPLEMENTED** — stable product behavior exists;
+- **POC** — executable experiment exists but is not promoted;
+- **STUB** — boundary named, implementation incomplete/absent;
+- **SPEC** — contract defined, evidence/implementation may be incomplete;
+- **FUTURE** — direction only.
 
 ## Design principles
 
@@ -30,18 +53,6 @@ Prefer established IDE conventions:
 
 Do not add a custom dashboard when an ordinary IDE surface can carry the behavior.
 
-### Keep research in parity with the IDE
-
-`poc/` is an experimental proving ground, not a second product.
-
-- Keep shared runtime/dependency baselines aligned when the experiment depends on the same capability.
-- Preserve the same authority and evidence rules.
-- Do not invent a second workspace or patch protocol.
-- Allow narrower POC UI only where it isolates the experiment.
-- Promote research features into the stable shell only after their stated evidence gate closes.
-
-See `PARITY.md` for the current matrix and drift checks.
-
 ### Keep teaching behavior separate
 
 Pedagogical behavior should usually live in `IDE-SKILL.md`, contextual documentation, commands, traces, diagnostics, correspondence, or chat reasoning rather than permanent visual chrome.
@@ -53,6 +64,18 @@ The primary artifact must remain suitable for ChatGPT side-panel use. Changes th
 ### Preserve graceful degradation
 
 External browser modules may be blocked by the preview environment. The IDE should fail visibly and retain useful baseline editing/state behavior rather than present a broken blank surface.
+
+### Keep AI-native behavior explicit
+
+AI-native changes should make state, requested capabilities, authority boundaries, and resulting evidence more explicit—not merely add model calls.
+
+A useful feature proposal should answer:
+
+- what explicit state the agent sees;
+- what named capability/action it requests;
+- what gate controls the effect;
+- what evidence/artifact records the result;
+- whether repeated admitted inference can become deterministic.
 
 ## Agentic-language contribution classes
 
@@ -103,13 +126,12 @@ Kernel growth should be slow. Surface-language growth may be fast.
 For non-trivial work:
 
 1. Open or identify an issue describing the user-visible or research need and acceptance criteria.
-2. Classify the change.
-3. Check whether it crosses the stable-IDE / research-artifact parity boundary.
-4. Work on a focused branch.
-5. Keep commits small enough to explain.
-6. Open a PR that states the behavior before and after the change.
-7. Include verification evidence and known side-panel limitations.
-8. Prefer squash merge for focused feature/fix PRs unless preserving commit history has a specific value.
+2. Classify the change and affected concern boundary.
+3. Work on a focused branch.
+4. Keep commits small enough to explain.
+5. Open a PR that states the behavior/status before and after the change.
+6. Include verification evidence and known side-panel limitations.
+7. Prefer squash merge for focused feature/fix PRs unless preserving commit history has a specific value.
 
 Tiny documentation corrections may be committed directly when repository policy permits it.
 
@@ -119,7 +141,11 @@ A PR should answer:
 
 - What user/research problem does this solve?
 - What class of change is this?
+- Which typology/concern owns it?
+- What topology/boundary does it cross?
 - Why does it belong in this layer?
+- What is the status before and after: IMPLEMENTED / POC / STUB / SPEC / FUTURE?
+- Why is any status promotion earned?
 - What existing open-source primitive was reused?
 - What new dependency, if any, was introduced and why?
 - Does the side-panel/fallback path still work?
@@ -129,9 +155,7 @@ A PR should answer:
 - Does it alter the semantic kernel version or trusted computing base?
 - Which S-level is actually earned, and from what computed evidence?
 - Which negative/defeat cases were tested?
-- Does it change runtime/dependency parity between `index.html` and `poc/`?
-- If stable IDE and POC differ after this change, is the divergence deliberate and documented?
-- Is a research capability being promoted before its success criterion has closed?
+- Did IDE/research parity change, and is any exception documented?
 
 ## Code practices
 
@@ -146,6 +170,7 @@ A PR should answer:
 - Prefer deterministic file ordering and stable identifiers where state packets or semantic receipts depend on them.
 - Never encode verification status as decorative/static UI state when it should be computed.
 - Keep independent verifier code genuinely independent from producer shortcuts when independence is part of the research claim.
+- Keep STUB modules free of copied placeholder implementation unless the placeholder itself is the explicit experiment.
 
 ## Agent and patch safety
 
@@ -166,7 +191,6 @@ Use mature open-source dependencies only when they replace meaningful custom imp
 When adding or upgrading a dependency:
 
 - record its name and version;
-- update every parity-sensitive surface that depends on the same runtime, or explicitly document the experimental exception;
 - link/document the upstream project in the relevant source or documentation;
 - preserve its license/notice obligations;
 - avoid unnecessary overlapping packages.
@@ -195,5 +219,7 @@ Agentic-language work should currently favor only POC 0.1:
 - independent Python AST-to-IR reconstruction;
 - computed S0-S4 standing;
 - defeat mutations defined in `RESEARCH.md`.
+
+Architecture work may continue through stubs/status/contract clarification, but should not imply implementation promotion.
 
 Do not add branching, functions, records, effects, tensors, or open-ended LLM elaboration until the smaller certifying-projection loop is demonstrably working.
