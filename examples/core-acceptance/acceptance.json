@@ -1,0 +1,35 @@
+{
+  "version": "CORE_ACCEPTANCE/1",
+  "fixtures": [
+    {
+      "id": "calculator",
+      "entry": "scientific_calculator.py",
+      "current_expectation": "PASS",
+      "final_output": "calculator: PASS",
+      "exercises": ["editor", "python.run", "terminal", "assertions"]
+    },
+    {
+      "id": "kanban",
+      "entry": "kanban.py",
+      "current_expectation": "PASS",
+      "final_output": "kanban: PASS",
+      "exercises": ["editor", "python.run", "terminal", "structured-state"]
+    },
+    {
+      "id": "multifile-import",
+      "entry": "multifile/main.py",
+      "current_expectation": "KNOWN_GAP",
+      "target_output": "multifile: PASS",
+      "requires": ["workspace materialization", "python.run"]
+    }
+  ],
+  "future_provider_checks": [
+    "syntax.query",
+    "language.hover",
+    "language.references",
+    "vcs.status",
+    "vcs.diff",
+    "tests.run",
+    "receipt.inspect"
+  ]
+}
