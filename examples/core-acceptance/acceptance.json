@@ -1,37 +1,85 @@
 {
-  "version": "CORE_ACCEPTANCE/1",
+  "version": "CORE_ACCEPTANCE/2",
+  "host_invariant": "Chat is the required portable baseline; stronger Work providers may extend availability or evidence but must preserve shared capability semantics, custody, and result/error classifications.",
   "fixtures": [
     {
       "id": "calculator",
       "entry": "scientific_calculator.py",
       "current_expectation": "PASS",
       "final_output": "calculator: PASS",
-      "exercises": ["editor", "python.run", "terminal", "assertions"]
+      "exercises": ["editor", "python.run", "terminal", "assertions"],
+      "hosts": {
+        "chat": "REQUIRED_PASS",
+        "work": "MUST_NOT_REGRESS"
+      }
     },
     {
       "id": "kanban",
       "entry": "kanban.py",
       "current_expectation": "PASS",
       "final_output": "kanban: PASS",
-      "exercises": ["editor", "python.run", "terminal", "structured-state"]
+      "exercises": ["editor", "python.run", "terminal", "structured-state"],
+      "hosts": {
+        "chat": "REQUIRED_PASS",
+        "work": "MUST_NOT_REGRESS"
+      }
     },
     {
       "id": "multifile-import",
       "entry": "multifile/main.py",
       "current_expectation": "KNOWN_GAP",
       "target_output": "multifile: PASS",
-      "requires": ["workspace materialization", "python.run"]
+      "requires": ["workspace materialization", "python.run"],
+      "hosts": {
+        "chat": "TARGET_PASS_AFTER_PROMOTION",
+        "work": "MUST_NOT_BYPASS_CHAT_TARGET"
+      }
     }
   ],
+  "host_profiles": {
+    "chat": {
+      "product_role": "required_portable_baseline",
+      "current_standing": "IMPLEMENTED",
+      "required_core_fixtures": ["calculator", "kanban"],
+      "promotion_rule": "Shared product capabilities must declare and preserve an explicit Chat behavior."
+    },
+    "work": {
+      "product_role": "optional_stronger_host",
+      "current_standing": "SPEC",
+      "required_core_fixtures": ["calculator", "kanban"],
+      "promotion_rule": "Work may add stronger adapters/providers but may not replace Chat-core acceptance or widen authority."
+    }
+  },
   "provider_checks": {
-    "poc": ["syntax.tree", "syntax.query"],
-    "future": [
-      "language.hover",
-      "language.references",
-      "vcs.status",
-      "vcs.diff",
-      "tests.run",
-      "receipt.inspect"
-    ]
-  }
+    "chat": {
+      "implemented": ["python.run"],
+      "poc": ["syntax.tree", "syntax.query", "workspace.materialize"],
+      "future": [
+        "language.hover",
+        "language.references",
+        "vcs.status",
+        "vcs.diff",
+        "tests.run",
+        "receipt.inspect",
+        "debug.stack"
+      ]
+    },
+    "work": {
+      "implemented": [],
+      "spec": [
+        "stronger runtime providers",
+        "language.* via LSP/server",
+        "vcs.* via native/server Git",
+        "tests.run via stronger runner",
+        "optional richer agent transport"
+      ]
+    }
+  },
+  "parity_requirements": [
+    "same capability meaning across hosts",
+    "same workspace authority model across hosts",
+    "stronger host availability does not widen authority",
+    "provider-unavailable behavior remains explicit",
+    "Work-specific fixtures extend but never replace Chat-core fixtures"
+  ]
 }
