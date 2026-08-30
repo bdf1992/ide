@@ -85,6 +85,17 @@ unknown personal expression
 
 The LLM is outside the trusted computing base.
 
+The first executable candidate for this experiment lives in
+[`poc/neural-elaboration/`](./poc/neural-elaboration/). It freezes a model-neutral
+`SEMANTIC_PROPOSAL/1` port and generates paired Personal, alien, Python, structural,
+and image projections from Kernel 0.1 ground. This introduces no new admitted semantic
+node. The custom-model path is a LoRA adapter over an open-weight VLM; weights and
+performance remain FUTURE until a recorded training/evaluation run exists.
+
+The candidate additionally carries an experimental typed structural representation:
+content-addressed data, typed tokens, proposal-local token state, and frame-relative
+relation signals. These fields are ablatable model features, not semantic authority.
+
 ### Success criterion
 
 Zero unadmitted LLM proposals can alter executable semantic state, produce execution standing, or expand the kernel.
