@@ -6,8 +6,8 @@ This repository also contains the agentic-language research system. Changes to l
 
 ## Before changing code
 
-1. Read `README.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
-2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, projection extension, normalization extension, kernel extension, or genuinely new UI.
+1. Read `README.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, `RESEARCH.md`, and `PARITY.md`.
+2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, projection extension, normalization extension, kernel extension, parity maintenance, or genuinely new UI.
 3. Prefer the smallest layer that can solve the problem.
 4. Check whether Monaco, xterm.js, Pyodide, or an existing browser API already provides the capability.
 
@@ -29,6 +29,18 @@ Prefer established IDE conventions:
 - go-to-definition/refactoring when language support allows it
 
 Do not add a custom dashboard when an ordinary IDE surface can carry the behavior.
+
+### Keep research in parity with the IDE
+
+`poc/` is an experimental proving ground, not a second product.
+
+- Keep shared runtime/dependency baselines aligned when the experiment depends on the same capability.
+- Preserve the same authority and evidence rules.
+- Do not invent a second workspace or patch protocol.
+- Allow narrower POC UI only where it isolates the experiment.
+- Promote research features into the stable shell only after their stated evidence gate closes.
+
+See `PARITY.md` for the current matrix and drift checks.
 
 ### Keep teaching behavior separate
 
@@ -92,11 +104,12 @@ For non-trivial work:
 
 1. Open or identify an issue describing the user-visible or research need and acceptance criteria.
 2. Classify the change.
-3. Work on a focused branch.
-4. Keep commits small enough to explain.
-5. Open a PR that states the behavior before and after the change.
-6. Include verification evidence and known side-panel limitations.
-7. Prefer squash merge for focused feature/fix PRs unless preserving commit history has a specific value.
+3. Check whether it crosses the stable-IDE / research-artifact parity boundary.
+4. Work on a focused branch.
+5. Keep commits small enough to explain.
+6. Open a PR that states the behavior before and after the change.
+7. Include verification evidence and known side-panel limitations.
+8. Prefer squash merge for focused feature/fix PRs unless preserving commit history has a specific value.
 
 Tiny documentation corrections may be committed directly when repository policy permits it.
 
@@ -116,6 +129,9 @@ A PR should answer:
 - Does it alter the semantic kernel version or trusted computing base?
 - Which S-level is actually earned, and from what computed evidence?
 - Which negative/defeat cases were tested?
+- Does it change runtime/dependency parity between `index.html` and `poc/`?
+- If stable IDE and POC differ after this change, is the divergence deliberate and documented?
+- Is a research capability being promoted before its success criterion has closed?
 
 ## Code practices
 
@@ -150,6 +166,7 @@ Use mature open-source dependencies only when they replace meaningful custom imp
 When adding or upgrading a dependency:
 
 - record its name and version;
+- update every parity-sensitive surface that depends on the same runtime, or explicitly document the experimental exception;
 - link/document the upstream project in the relevant source or documentation;
 - preserve its license/notice obligations;
 - avoid unnecessary overlapping packages.
