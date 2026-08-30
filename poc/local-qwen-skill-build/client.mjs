@@ -1,4 +1,5 @@
 export const DEFAULT_BASE_URLS = [
+  "http://127.0.0.1:10000/v1",
   "http://127.0.0.1:8080/v1",
   "http://127.0.0.1:11434/v1",
 ];
