@@ -17,10 +17,22 @@ function jsonResponse(body, status = 200) {
   assert.equal(parsed.protocol, "BUILD_PROPOSAL/1");
 }
 
-// Discovery falls through from llama.cpp to Ollama and picks the reported model id.
+// The Qwen local workbench llama.cpp endpoint is preferred when available.
 {
   const fetchImpl = async (url) => {
-    if (String(url).startsWith("http://127.0.0.1:8080")) throw new Error("offline");
+    if (String(url) === "http://127.0.0.1:10000/v1/models") return jsonResponse({ data: [{ id: "qwen38-27b-local" }] });
+    throw new Error(`unexpected URL ${url}`);
+  };
+  const found = await discoverLocalOpenAI({ fetchImpl, timeoutMs: 50 });
+  assert.equal(found.baseUrl, "http://127.0.0.1:10000/v1");
+  assert.equal(found.model, "qwen38-27b-local");
+}
+
+// Discovery falls through workbench llama.cpp, conventional llama.cpp, then Ollama.
+{
+  const fetchImpl = async (url) => {
+    if (String(url).startsWith("http://127.0.0.1:10000")) throw new Error("workbench offline");
+    if (String(url).startsWith("http://127.0.0.1:8080")) throw new Error("llama.cpp offline");
     if (String(url) === "http://127.0.0.1:11434/v1/models") return jsonResponse({ data: [{ id: "qwen-local" }] });
     throw new Error(`unexpected URL ${url}`);
   };
@@ -34,15 +46,15 @@ function jsonResponse(body, status = 200) {
   const state = scenarioState("trace");
   const messages = buildAdvisorMessages(state);
   const fetchImpl = async (url, options) => {
-    assert.equal(String(url), "http://127.0.0.1:8080/v1/chat/completions");
+    assert.equal(String(url), "http://127.0.0.1:10000/v1/chat/completions");
     assert.equal(options.method, "POST");
     return jsonResponse({
       choices: [{ message: { content: '<think>trace is earned</think>\n{"protocol":"BUILD_PROPOSAL/1","selected":["read-values","trace-loop"],"reason":"trace evidence is present"}' } }],
     });
   };
   const { proposal } = await requestBuildProposal({
-    baseUrl: "http://127.0.0.1:8080/v1",
-    model: "qwen-local",
+    baseUrl: "http://127.0.0.1:10000/v1",
+    model: "qwen38-27b-local",
     messages,
     fetchImpl,
     timeoutMs: 50,
