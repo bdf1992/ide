@@ -14,7 +14,8 @@ src/
 ├── projection/   render/reconstruct/normalize surfaces around semantics
 ├── agent/        proposal/elaboration helpers outside trusted semantics
 ├── capability/   transport-neutral operation contracts
-├── adapter/      chat/local/MCP/browser bindings for capabilities
+├── adapter/      chat/local/MCP/browser transport and host bindings
+├── provider/     concrete implementation bindings behind capabilities
 └── evidence/     diagnostics, receipts, standing, test/trace artifacts
 ```
 
@@ -22,9 +23,12 @@ src/
 
 ```text
 agent -----------+
-projection ------+--> capability contracts
-adapter ---------+          |
-UI/product ------+          v
+projection ------+--> capability contracts <-- adapter
+UI/product ------+          |
+                            gates
+                              |
+                           provider
+                              |
                          workspace/runtime
                               |
                          semantic kernel
@@ -36,12 +40,14 @@ This diagram is conceptual, not a mandate that every module directly imports eve
 
 ## Rules
 
-- The semantic kernel must not depend on an LLM, UI, or transport adapter.
-- Workspace custody must remain valid even when agent features are unavailable.
+- The semantic kernel must not depend on an LLM, UI, transport adapter, or provider-selection convenience.
+- Workspace custody must remain valid even when agent/provider features are unavailable.
 - Runtime APIs should expose execution results without deciding semantic standing.
 - Projection producers are untrusted relative to semantic admission/equivalence.
 - Evidence reports facts/results; it does not mutate semantic rules.
 - Capability contracts should remain useful across ChatGPT-side-panel and future local/MCP-shaped bindings.
+- Adapters make capabilities reachable; providers fulfill accepted capabilities against concrete substrates.
+- Provider availability must never silently widen capability meaning or authority.
 - Avoid duplicating code from `index.html` or `poc/` just to populate these stubs.
 
 ## Promotion

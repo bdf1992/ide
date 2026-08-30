@@ -20,9 +20,10 @@ Status words:
 | Agent operating contract | IMPLEMENTED | `IDE-SKILL.md`, `AGENTS.md` | behavioral contract, not autonomous runtime |
 | Workspace state/patch envelope | SPEC + partial implementation | `contracts/ide-*.schema.json`, `index.html` | existing packet/patch behavior now has draft schemas; runtime validation is not yet schema-driven |
 | Crossing contract set | SPEC | `contracts/` | typed envelopes defined; no shared contract validator/bus claimed |
-| Capability layer | STUB | `src/capability/` | transport-neutral names exist; shared implementation not extracted yet |
+| Capability layer | STUB | `src/capability/` | transport-neutral names exist; shared implementation/gate not extracted yet |
 | Capability request/result envelopes | SPEC | `contracts/capability-*.schema.json` | request/result shapes only; authority gate/runtime not implemented |
-| Adapter layer | STUB | `src/adapter/` | future chat/local/MCP bindings; no shared adapter runtime yet |
+| Adapter layer | STUB | `src/adapter/` | chat/browser/local/MCP host bindings; no shared adapter runtime yet |
+| Provider layer | STUB | `src/provider/`, `architecture/PROVIDERS.md` | implementation-binding type and target map defined; no shared provider registry/dispatcher yet |
 | Workspace module | STUB | `src/workspace/` | boundary extracted conceptually; implementation still embedded in `index.html` |
 | Runtime module | STUB | `src/runtime/` | boundary named; implementation still embedded in stable/P0.1 artifacts |
 | Execution result envelope | SPEC | `contracts/execution-result.schema.json` | result shape only; product runtime does not yet emit this contract |
@@ -49,6 +50,8 @@ A file or schema existing is not sufficient evidence of implementation.
 
 For a crossing contract specifically, promotion requires at least one real producer and consumer validating the same versioned shape in the supported product path.
 
+For a provider specifically, promotion requires a real capability operation to be fulfilled through the provider boundary without changing the operation's custody, authority, or result semantics.
+
 ## Current next closure
 
 The next research closure remains POC 0.1:
@@ -57,6 +60,8 @@ The next research closure remains POC 0.1:
 2. record the actual computed results;
 3. correct any boundary/implementation defect;
 4. only then consider promoting semantic mode into the stable IDE shell.
+
+The provider architecture may evolve as a STUB/SPEC in parallel, but it does not bypass this closure or earn an implementation claim.
 
 The POC 0.2 candidate harness may evolve independently as an isolated testbed, but it
 does not bypass this closure or earn integration into `index.html`.
