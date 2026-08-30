@@ -25,6 +25,7 @@ Status words:
 | Adapter layer | STUB | `src/adapter/` | chat/browser/local/MCP host bindings; no shared adapter runtime yet |
 | Provider layer | STUB | `src/provider/`, `architecture/PROVIDERS.md` | implementation-binding type and target map defined; no shared provider registry/dispatcher yet |
 | Syntax provider | POC | `poc/provider-syntax/` | isolated `syntax.tree`/`syntax.query` Tree-sitter provider candidate; browser acceptance still required before promotion |
+| Workspace materialization | POC | `poc/workspace-materialization/` | provider-neutral derived-view core passes deterministic Node acceptance; Pyodide browser acceptance still required before stable integration |
 | Workspace module | STUB | `src/workspace/` | boundary extracted conceptually; implementation still embedded in `index.html` |
 | Runtime module | STUB | `src/runtime/` | boundary named; implementation still embedded in stable/P0.1 artifacts |
 | Execution result envelope | SPEC | `contracts/execution-result.schema.json` | result shape only; product runtime does not yet emit this contract |
