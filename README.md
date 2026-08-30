@@ -29,6 +29,7 @@ Read these files before changing that architecture:
 - [`AGENTIC-LANGUAGE.md`](./AGENTIC-LANGUAGE.md) — product/research concept and authority boundaries.
 - [`SEMANTIC-KERNEL.md`](./SEMANTIC-KERNEL.md) — trusted microkernel 0.1 and semantic standing model.
 - [`RESEARCH.md`](./RESEARCH.md) — POC 0.1–0.4 experimental protocol and success criteria.
+- [`poc/README.md`](./poc/README.md) — executable POC 0.1 scope, defeat suite, and evidence status.
 
 Project constitution:
 
@@ -81,6 +82,6 @@ Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`
 
 Current IDE baseline: **side-panel prototype with revision-aware chat patching**.
 
-Current language/research baseline: **architecture frozen for Semantic Microkernel 0.1 and POC 0.1 Certifying Projection; implementation not yet claimed complete**.
+Current language/research baseline: **Semantic Microkernel 0.1 architecture is frozen; an executable POC 0.1 implementation candidate exists under `poc/`, with real CPython `ast.parse` S2 checking, independent S3 reconstruction, S4 observation comparison, and a built-in defeat suite**.
 
-The next language milestone is deliberately narrow: implement the Kernel 0.1 accumulator path, real CPython `ast.parse()` reverse reconstruction through Pyodide, S0–S4 computed standing, and the required defeat mutations before expanding language semantics.
+POC 0.1 is not declared experimentally complete until that browser/Pyodide suite is actually executed in the supported surface and all required defeat cases pass. Do not expand the kernel merely to make the POC more impressive before that closure.
