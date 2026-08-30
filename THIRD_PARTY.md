@@ -10,6 +10,10 @@ Current browser-loaded dependencies:
 
 Each dependency remains governed by its upstream license and notices. Contributors adding or upgrading dependencies should verify upstream licensing and update this file when the dependency is part of the durable core.
 
+Experimental/browser POC dependencies:
+
+- **@vscode/tree-sitter-wasm 0.3.1** — MIT-licensed prebuilt Tree-sitter browser runtime and grammar WASM files used by VS Code; loaded from jsDelivr only by `poc/provider-syntax/`. The POC uses the package's matching `tree-sitter.js`, `tree-sitter.wasm`, and `tree-sitter-python.wasm` assets as one compatibility set. It is not yet a stable IDE dependency.
+
 Experimental/offline tooling:
 
 - **Pillow 12.3.0** — pinned only for deterministic visual-corpus rendering under

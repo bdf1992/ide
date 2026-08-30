@@ -23,13 +23,15 @@
       "requires": ["workspace materialization", "python.run"]
     }
   ],
-  "future_provider_checks": [
-    "syntax.query",
-    "language.hover",
-    "language.references",
-    "vcs.status",
-    "vcs.diff",
-    "tests.run",
-    "receipt.inspect"
-  ]
+  "provider_checks": {
+    "poc": ["syntax.tree", "syntax.query"],
+    "future": [
+      "language.hover",
+      "language.references",
+      "vcs.status",
+      "vcs.diff",
+      "tests.run",
+      "receipt.inspect"
+    ]
+  }
 }

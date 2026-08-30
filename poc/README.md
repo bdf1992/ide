@@ -66,6 +66,12 @@ If POC code begins mutating the user's real IDE workspace, it must use the exist
 
 Semantic Split should not be promoted into `index.html` until POC 0.1 closes with actual browser execution evidence.
 
+## Parallel provider lab
+
+`provider-syntax/` is a separate infrastructure POC for issue #15. It proves that the transport-neutral `syntax.tree` and `syntax.query` capability shapes can be fulfilled by a pinned Tree-sitter/VS Code WASM substrate without changing stable workspace/runtime behavior.
+
+It is not part of Semantic POC 0.1 standing and does not bypass the POC 0.1 closure. The provider lab reuses the durable acceptance fixtures under `examples/core-acceptance/` and remains isolated from `index.html` until browser acceptance earns promotion.
+
 ## Current evidence
 
 The source has been statically reviewed against the research contract and the stage boundaries are represented separately in code. This environment cannot execute the browser-hosted Pyodide module, so the browser defeat suite has **not** been claimed as run here.
