@@ -44,6 +44,7 @@ Read these files before changing that architecture:
 - [`SEMANTIC-KERNEL.md`](./SEMANTIC-KERNEL.md) — trusted microkernel 0.1 and semantic standing model.
 - [`RESEARCH.md`](./RESEARCH.md) — POC 0.1–0.4 experimental protocol and success criteria.
 - [`poc/README.md`](./poc/README.md) — executable POC 0.1 scope, defeat suite, and evidence status.
+- [`poc/neural-elaboration/README.md`](./poc/neural-elaboration/README.md) — isolated POC 0.2 custom-model corpus and evaluator candidate.
 
 Project constitution:
 

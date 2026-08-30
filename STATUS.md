@@ -34,6 +34,9 @@ Status words:
 | Evidence/receipt module | STUB | `src/evidence/` | POC computes standing; shared product evidence layer not promoted |
 | Evidence receipt envelope | SPEC | `contracts/evidence-receipt.schema.json` | receipt shape only; no generic product receipt emitter/validator yet |
 | Agent semantic elaboration | FUTURE | `src/agent/`, POC 0.2 | LLM proposal path deliberately not in trusted POC 0.1 loop |
+| TSR neural elaboration harness | POC | `poc/neural-elaboration/` | deterministic multimodal corpus/evaluator candidate; no trained weights or stable integration claimed |
+| TSR proposal contract | SPEC | `poc/neural-elaboration/contract/` | model-neutral candidate/refusal envelope; model output remains untrusted |
+| TSR custom LoRA weights | FUTURE | issue #7 | training has not been run; no weight or performance claim exists |
 | Adaptive codebook | FUTURE | POC 0.3 | no implementation claim |
 | Semantic learning experiment | FUTURE | POC 0.4 | protocol defined; experiment not run |
 | Branch/functions/records/effects/tensors | FUTURE | Kernel 0.2–0.6 | do not expand before core experiment closure |
@@ -54,3 +57,6 @@ The next research closure remains POC 0.1:
 2. record the actual computed results;
 3. correct any boundary/implementation defect;
 4. only then consider promoting semantic mode into the stable IDE shell.
+
+The POC 0.2 candidate harness may evolve independently as an isolated testbed, but it
+does not bypass this closure or earn integration into `index.html`.
