@@ -30,7 +30,7 @@ Status words:
 | Agent semantic elaboration | FUTURE | `src/agent/`, POC 0.2 | LLM proposal path deliberately not in trusted POC 0.1 loop |
 | TSR neural elaboration harness | POC | `poc/neural-elaboration/` | deterministic multimodal corpus/evaluator candidate; no trained weights or stable integration claimed |
 | TSR proposal contract | SPEC | `poc/neural-elaboration/contract/` | model-neutral candidate/refusal envelope; model output remains untrusted |
-| TSR custom LoRA weights | FUTURE | issue #5 | training has not been run; no weight or performance claim exists |
+| TSR custom LoRA weights | FUTURE | issue #7 | training has not been run; no weight or performance claim exists |
 | Adaptive codebook | FUTURE | POC 0.3 | no implementation claim |
 | Semantic learning experiment | FUTURE | POC 0.4 | protocol defined; experiment not run |
 | Branch/functions/records/effects/tensors | FUTURE | Kernel 0.2–0.6 | do not expand before core experiment closure |

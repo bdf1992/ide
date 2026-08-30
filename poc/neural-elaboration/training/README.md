@@ -87,3 +87,5 @@ is opened once for the experiment receipt.
 
 Until that receipt exists, the repository has a runnable model **testbed**, not a
 trained custom model.
+
+The first governed run is tracked in repository issue `#7`.
