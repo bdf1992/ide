@@ -162,6 +162,57 @@ Track:
 
 The learner can identify admitted computational structures above chance and with useful consistency when lexical cues are changed or removed.
 
+## Research lineage and claim boundary
+
+The project should be positioned carefully relative to established compiler-assurance work.
+
+### Fully verified compilation
+
+Projects such as CompCert and CakeML prove compiler-wide semantic-preservation properties over their admitted source and target languages. Their central claim is stronger than this project's current POC: once the compiler correctness theorem is proved, all successful compilations covered by that theorem inherit the result.
+
+This repository does **not** currently claim a verified compiler, a verified parser, a verified emitter, or a proof of semantic preservation for all programs in a general-purpose language.
+
+### Translation validation
+
+POC 0.1 is closest to **translation validation**: rather than proving the emitter correct for every possible program, each concrete translation is checked after generation. The source semantic object and the generated target are independently interpreted and compared for the specific run.
+
+Our variant adds a projectional constraint:
+
+```text
+surface projection A
+        -> canonical Kernel IR
+        -> target projection B
+        -> independent target reconstruction
+        -> canonical Kernel IR'
+        -> compare admitted meaning
+```
+
+The interesting research question is therefore not merely whether a compiler run can be validated, but whether several user-facing syntaxes can share one canonical semantic identity and regain that identity through independent reconstruction.
+
+### Certifying / proof-carrying ideas
+
+Proof-Carrying Code and certifying compilers motivate the receipt shape: an untrusted producer may emit code plus evidence, while a smaller checker determines whether that evidence satisfies an admitted policy. POC 0.1 uses this idea only loosely at first; S0-S4 receipts are computed audit evidence, not formal proof terms unless a later kernel version explicitly adds such a proof system.
+
+### Terminology rule
+
+Prefer these descriptions for the current work:
+
+- `translation validation` for per-projection checking;
+- `certifying projection` for the project's specific multi-syntax receipt model;
+- `independent reconstruction` for target AST -> canonical semantics;
+- `observational agreement` for S4 execution comparison.
+
+Do not describe POC 0.1 as a `verified compiler` or claim full source-target semantic equivalence beyond the formal scope actually implemented and checked.
+
+### Primary references
+
+- Xavier Leroy / CompCert — compiler-wide semantic preservation: https://compcert.org/
+- CakeML — verified language/compiler ecosystem: https://cakeml.org/
+- Amir Pnueli, Michael Siegel, Eli Singerman — Translation Validation (1998): https://cs.nyu.edu/home/people/in_memoriam/pnueli/transval-icalp98.html
+- George C. Necula — Proof-Carrying Code (POPL 1997): https://doi.org/10.1145/263699.263712
+
+These are research lineage, not dependencies. The project learns from their assurance boundaries while deliberately beginning with a much smaller browser-native experiment.
+
 ## Two-dimensional roadmap
 
 Experimental maturity:
