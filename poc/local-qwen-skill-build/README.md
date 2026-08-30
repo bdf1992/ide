@@ -20,14 +20,15 @@ Qwen may recommend which already-earned skills to select. It cannot invent evide
 
 ## Works with the Qwen local workbench
 
-The client auto-detects the two OpenAI-compatible local endpoints used by common llama.cpp and Ollama setups:
+The client auto-detects these OpenAI-compatible local endpoints in order:
 
 ```text
-llama.cpp  http://127.0.0.1:8080/v1
-Ollama     http://127.0.0.1:11434/v1
+Qwen workbench llama.cpp  http://127.0.0.1:10000/v1
+common llama.cpp          http://127.0.0.1:8080/v1
+Ollama                    http://127.0.0.1:11434/v1
 ```
 
-For the `qwen38-local-workbench-0.2.0` menu, the shortest first test is:
+For `qwen38-local-workbench-0.3.0`, the shortest first test is:
 
 1. Choose **1** for the recommended one-click llama.cpp + Qwen setup, or choose **2** for Ollama.
 2. If you start llama.cpp manually, **7 SAFE 16K** is enough for this tiny POC; move to 32K later if desired.
@@ -94,7 +95,7 @@ Auto-detection normally discovers the model through `/v1/models`. Override eithe
 
 ```powershell
 node poc/local-qwen-skill-build/run-local.mjs ^
-  --base-url http://127.0.0.1:8080/v1 ^
+  --base-url http://127.0.0.1:10000/v1 ^
   --model YOUR_MODEL_ID ^
   --scenario trace
 ```
@@ -102,7 +103,7 @@ node poc/local-qwen-skill-build/run-local.mjs ^
 Environment variables also work:
 
 ```powershell
-$env:QWEN_BASE_URL = "http://127.0.0.1:8080/v1"
+$env:QWEN_BASE_URL = "http://127.0.0.1:10000/v1"
 $env:QWEN_MODEL = "YOUR_MODEL_ID"
 node poc/local-qwen-skill-build/run-local.mjs --scenario trace
 ```
