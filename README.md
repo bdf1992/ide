@@ -25,6 +25,7 @@ The repository now separates **architecture shape** from **implementation standi
 - [`architecture/TYPOLOGY.md`](./architecture/TYPOLOGY.md) — what kinds of things exist and what authority each kind has.
 - [`architecture/TOPOLOGY.md`](./architecture/TOPOLOGY.md) — which boundaries may connect and in what direction.
 - [`architecture/AI-NATIVE.md`](./architecture/AI-NATIVE.md) — the repository-specific meaning of AI-native design.
+- [`contracts/README.md`](./contracts/README.md) — versioned draft envelopes allowed to cross those boundaries; contracts carry shape, not ambient authority.
 - [`src/README.md`](./src/README.md) — future implementation-boundary stubs; their presence is not an implementation claim.
 - [`STATUS.md`](./STATUS.md) — explicit IMPLEMENTED / POC / STUB / SPEC / FUTURE ledger.
 - [`PARITY.md`](./PARITY.md) — one-product parity contract between the stable IDE and research artifacts.
@@ -97,6 +98,6 @@ Current IDE baseline: **side-panel prototype with revision-aware chat patching**
 
 Current language/research baseline: **Semantic Microkernel 0.1 architecture is frozen; an executable POC 0.1 implementation candidate exists under `poc/`, with real CPython `ast.parse` S2 checking, independent S3 reconstruction, S4 observation comparison, and a built-in defeat suite**.
 
-The larger concern boundaries under `src/` are intentionally **STUBS**, not a claim that the system has already been refactored into those modules. See [`STATUS.md`](./STATUS.md) for the authoritative implementation-state vocabulary.
+The larger concern boundaries under `src/` are intentionally **STUBS**, and the boundary envelopes under `contracts/` are intentionally **SPECS**. Neither directory is a claim that a shared modular runtime, bus, or validator already exists. See [`STATUS.md`](./STATUS.md) for the authoritative implementation-state vocabulary.
 
 POC 0.1 is not declared experimentally complete until that browser/Pyodide suite is actually executed in the supported surface and all required defeat cases pass. Do not expand the kernel merely to make the POC more impressive before that closure.
