@@ -18,6 +18,27 @@ The core stays intentionally boring:
 
 Do not replace ordinary IDE primitives with custom teaching dashboards when files, tabs, hover docs, completion, terminal, diagnostics, tests, diffs, or commands can express the need.
 
+## Agentic language initiative
+
+This repository also hosts a research initiative in **projectional, verifiable, agent-assisted programming**.
+
+The central idea is not to make syntax authoritative. A personal dialect, Python, mathematical notation, or another admitted surface can project the same canonical semantic program. LLMs may help elaborate unfamiliar expressions and propose mappings, but they do not decide semantic correctness or execution standing.
+
+Read these files before changing that architecture:
+
+- [`AGENTIC-LANGUAGE.md`](./AGENTIC-LANGUAGE.md) — product/research concept and authority boundaries.
+- [`SEMANTIC-KERNEL.md`](./SEMANTIC-KERNEL.md) — trusted microkernel 0.1 and semantic standing model.
+- [`RESEARCH.md`](./RESEARCH.md) — POC 0.1–0.4 experimental protocol and success criteria.
+
+Project constitution:
+
+> **Syntax is personal, fluid, and expendable.**  
+> **Meaning is canonical, explicit, and versioned.**  
+> **Translation is untrusted until independently reconstructed.**  
+> **Execution standing is earned from evidence, never inferred from confidence.**
+
+Experimental maturity and semantic expressive power are separate axes. Proving POC 0.1–0.4 does not require prematurely expanding the semantic kernel.
+
 ## Current capabilities
 
 - Explorer file selection
@@ -52,10 +73,14 @@ For future work sessions, start from this repository rather than reconstructing 
 
 Read [`CONTRIBUTING.md`](./CONTRIBUTING.md). Changes should preserve the minimal-core principle and demonstrate why a new capability belongs in the IDE core rather than in agent behavior or an existing IDE primitive.
 
+Semantic-language contributions must additionally classify themselves as a projection extension, normalization extension, or kernel extension. Kernel changes carry the highest burden of evidence.
+
 Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`](./THIRD_PARTY.md).
 
 ## Status
 
-Current baseline: **side-panel prototype with revision-aware chat patching**.
+Current IDE baseline: **side-panel prototype with revision-aware chat patching**.
 
-The next conservative core pass should focus on durable workspace import/export, file/folder operations, search, diagnostics, and stronger language intelligence before adding richer teaching behavior.
+Current language/research baseline: **architecture frozen for Semantic Microkernel 0.1 and POC 0.1 Certifying Projection; implementation not yet claimed complete**.
+
+The next language milestone is deliberately narrow: implement the Kernel 0.1 accumulator path, real CPython `ast.parse()` reverse reconstruction through Pyodide, S0–S4 computed standing, and the required defeat mutations before expanding language semantics.
