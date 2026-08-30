@@ -29,6 +29,7 @@ Read these files before changing that architecture:
 - [`AGENTIC-LANGUAGE.md`](./AGENTIC-LANGUAGE.md) — product/research concept and authority boundaries.
 - [`SEMANTIC-KERNEL.md`](./SEMANTIC-KERNEL.md) — trusted microkernel 0.1 and semantic standing model.
 - [`RESEARCH.md`](./RESEARCH.md) — POC 0.1–0.4 experimental protocol and success criteria.
+- [`PARITY.md`](./PARITY.md) — contract keeping the research artifacts aligned with the stable IDE/runtime/authority model.
 - [`poc/README.md`](./poc/README.md) — executable POC 0.1 scope, defeat suite, and evidence status.
 
 Project constitution:
@@ -39,6 +40,8 @@ Project constitution:
 > **Execution standing is earned from evidence, never inferred from confidence.**
 
 Experimental maturity and semantic expressive power are separate axes. Proving POC 0.1–0.4 does not require prematurely expanding the semantic kernel.
+
+The POC is a proving ground, not a parallel IDE. Runtime, authority, custody, and evidence rules must remain in parity with the stable shell; temporary UI differences are allowed only when they isolate an experiment. See `PARITY.md`.
 
 ## Current capabilities
 
@@ -74,7 +77,7 @@ For future work sessions, start from this repository rather than reconstructing 
 
 Read [`CONTRIBUTING.md`](./CONTRIBUTING.md). Changes should preserve the minimal-core principle and demonstrate why a new capability belongs in the IDE core rather than in agent behavior or an existing IDE primitive.
 
-Semantic-language contributions must additionally classify themselves as a projection extension, normalization extension, or kernel extension. Kernel changes carry the highest burden of evidence.
+Semantic-language contributions must additionally classify themselves as a projection extension, normalization extension, or kernel extension. Kernel changes carry the highest burden of evidence. Changes touching `index.html`, `poc/`, runtime loading, protocols, or standing must also pass the parity/drift checks in `PARITY.md`.
 
 Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`](./THIRD_PARTY.md).
 
@@ -83,5 +86,7 @@ Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`
 Current IDE baseline: **side-panel prototype with revision-aware chat patching**.
 
 Current language/research baseline: **Semantic Microkernel 0.1 architecture is frozen; an executable POC 0.1 implementation candidate exists under `poc/`, with real CPython `ast.parse` S2 checking, independent S3 reconstruction, S4 observation comparison, and a built-in defeat suite**.
+
+IDE/research parity baseline: **both the stable shell and POC 0.1 currently pin Pyodide `v314.0.6` and share the same evidence, agent-authority, and browser-runtime constraints**.
 
 POC 0.1 is not declared experimentally complete until that browser/Pyodide suite is actually executed in the supported surface and all required defeat cases pass. Do not expand the kernel merely to make the POC more impressive before that closure.
