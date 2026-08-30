@@ -1,0 +1,157 @@
+{
+  "protocol": "ADAPTER_CHALLENGE_CASES/1",
+  "cases": [
+    {
+      "id": "hello-default",
+      "challenge": "hello_world",
+      "input": {},
+      "expected": "Hello, World!"
+    },
+    {
+      "id": "hello-name",
+      "challenge": "hello_world",
+      "input": {"name": "Ada"},
+      "expected": "Hello, Ada!"
+    },
+    {
+      "id": "snake-eats",
+      "challenge": "snake",
+      "input": {
+        "state": {"width": 5, "height": 4, "snake": [[2, 1], [1, 1]], "direction": "right", "food": [3, 1], "alive": true},
+        "direction": "right"
+      },
+      "expected": {"width": 5, "height": 4, "snake": [[3, 1], [2, 1], [1, 1]], "direction": "right", "food": null, "alive": true}
+    },
+    {
+      "id": "snake-refuses-reverse",
+      "challenge": "snake",
+      "input": {
+        "state": {"width": 5, "height": 4, "snake": [[2, 1], [1, 1]], "direction": "right", "food": null, "alive": true},
+        "direction": "left"
+      },
+      "expected": {"width": 5, "height": 4, "snake": [[3, 1], [2, 1]], "direction": "right", "food": null, "alive": true}
+    },
+    {
+      "id": "pong-reflects-top",
+      "challenge": "pong",
+      "input": {
+        "state": {"width": 100, "height": 60, "ball": {"x": 50, "y": 5, "vx": 10, "vy": -10, "r": 2}, "paddles": {"left": {"x": 3, "y": 20, "w": 2, "h": 20}, "right": {"x": 95, "y": 20, "w": 2, "h": 20}}, "score": {"left": 0, "right": 0}},
+        "dt": 1
+      },
+      "expected": {"width": 100, "height": 60, "ball": {"x": 60, "y": 9, "vx": 10, "vy": 10, "r": 2}, "paddles": {"left": {"x": 3, "y": 20, "w": 2, "h": 20}, "right": {"x": 95, "y": 20, "w": 2, "h": 20}}, "score": {"left": 0, "right": 0}}
+    },
+    {
+      "id": "pong-scores-left",
+      "challenge": "pong",
+      "input": {
+        "state": {"width": 100, "height": 60, "ball": {"x": 99, "y": 30, "vx": 5, "vy": 0, "r": 2}, "paddles": {"left": {"x": 3, "y": 20, "w": 2, "h": 20}, "right": {"x": 95, "y": 0, "w": 2, "h": 10}}, "score": {"left": 2, "right": 1}},
+        "dt": 1
+      },
+      "expected": {"width": 100, "height": 60, "ball": {"x": 50, "y": 30, "vx": 5, "vy": 0, "r": 2}, "paddles": {"left": {"x": 3, "y": 20, "w": 2, "h": 20}, "right": {"x": 95, "y": 0, "w": 2, "h": 10}}, "score": {"left": 3, "right": 1}}
+    },
+    {
+      "id": "solitaire-deal-summary",
+      "challenge": "solitaire",
+      "input": {"operation": "deal_summary"},
+      "expected": {"column_sizes": [1, 2, 3, 4, 5, 6, 7], "top_cards": ["AC", "8C", "AD", "6D", "10D", "KD", "2H"], "stock_count": 24}
+    },
+    {
+      "id": "solitaire-stack-red-on-black",
+      "challenge": "solitaire",
+      "input": {"operation": "can_stack", "moving": "7H", "target": "8C"},
+      "expected": true
+    },
+    {
+      "id": "solitaire-only-king-on-empty",
+      "challenge": "solitaire",
+      "input": {"operation": "can_stack", "moving": "QH", "target": null},
+      "expected": false
+    },
+    {
+      "id": "watcher-diff",
+      "challenge": "file_watcher",
+      "input": {"before": {"a.txt": "h1", "b.txt": "h2"}, "after": {"b.txt": "h3", "c.txt": "h4"}},
+      "expected": {"created": ["c.txt"], "modified": ["b.txt"], "deleted": ["a.txt"]}
+    },
+    {
+      "id": "watcher-stable",
+      "challenge": "file_watcher",
+      "input": {"before": {"a.txt": "h1"}, "after": {"a.txt": "h1"}},
+      "expected": {"created": [], "modified": [], "deleted": []}
+    },
+    {
+      "id": "calculator-precedence-functions",
+      "challenge": "scientific_calculator",
+      "input": {"expression": "sin(pi / 2) + sqrt(16) * 2"},
+      "expected": 9
+    },
+    {
+      "id": "calculator-right-associative-power",
+      "challenge": "scientific_calculator",
+      "input": {"expression": "2 ^ 3 ^ 2"},
+      "expected": 512
+    },
+    {
+      "id": "calculator-division-by-zero",
+      "challenge": "scientific_calculator",
+      "input": {"expression": "4 / 0"},
+      "expected_error": "DIVISION_BY_ZERO"
+    },
+    {
+      "id": "kanban-move-preserves-card",
+      "challenge": "kanban",
+      "input": {
+        "board": {"columns": [{"id": "todo", "title": "Todo", "cards": [{"id": "a", "title": "Specify"}]}, {"id": "doing", "title": "Doing", "cards": []}]},
+        "event": {"type": "move", "card_id": "a", "to_column": "doing", "index": 0}
+      },
+      "expected": {"columns": [{"id": "todo", "title": "Todo", "cards": []}, {"id": "doing", "title": "Doing", "cards": [{"id": "a", "title": "Specify"}]}]}
+    },
+    {
+      "id": "kanban-duplicate-card",
+      "challenge": "kanban",
+      "input": {
+        "board": {"columns": [{"id": "todo", "title": "Todo", "cards": [{"id": "a", "title": "Specify"}]}]},
+        "event": {"type": "add", "column_id": "todo", "card": {"id": "a", "title": "Duplicate"}}
+      },
+      "expected_error": "DUPLICATE_CARD"
+    },
+    {
+      "id": "minesweeper-zero-flood-wins",
+      "challenge": "minesweeper",
+      "input": {
+        "state": {"width": 3, "height": 3, "mines": [[2, 2]], "revealed": [], "flags": [], "status": "active"},
+        "action": {"type": "reveal", "cell": [0, 0]}
+      },
+      "expected": {"width": 3, "height": 3, "mines": [[2, 2]], "revealed": [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [0, 2], [1, 2]], "flags": [], "status": "won"}
+    },
+    {
+      "id": "minesweeper-mine-loses",
+      "challenge": "minesweeper",
+      "input": {
+        "state": {"width": 3, "height": 3, "mines": [[2, 2]], "revealed": [], "flags": [], "status": "active"},
+        "action": {"type": "reveal", "cell": [2, 2]}
+      },
+      "expected": {"width": 3, "height": 3, "mines": [[2, 2]], "revealed": [[2, 2]], "flags": [], "status": "lost"}
+    },
+    {
+      "id": "models-hard-vision-filter",
+      "challenge": "model_recommendations",
+      "input": {
+        "models": [{"id": "a", "quality": 0.9, "speed": 0.5, "context": 0.8, "cost": 0.7, "vision": true, "local": false}, {"id": "b", "quality": 0.75, "speed": 0.9, "context": 0.6, "cost": 0.2, "vision": false, "local": true}, {"id": "c", "quality": 0.8, "speed": 0.7, "context": 0.9, "cost": 0.4, "vision": true, "local": true}],
+        "requirements": {"weights": {"quality": 0.4, "speed": 0.2, "context": 0.2, "cost": 0.2}, "needs_vision": true, "local_only": false},
+        "corrections": []
+      },
+      "expected": [{"id": "c", "score": 0.76}, {"id": "a", "score": 0.68}]
+    },
+    {
+      "id": "models-correction-changes-ranking",
+      "challenge": "model_recommendations",
+      "input": {
+        "models": [{"id": "a", "quality": 0.9, "speed": 0.5, "context": 0.8, "cost": 0.7, "vision": true, "local": false}, {"id": "c", "quality": 0.8, "speed": 0.7, "context": 0.9, "cost": 0.4, "vision": true, "local": true}],
+        "requirements": {"weights": {"quality": 0.4, "speed": 0.2, "context": 0.2, "cost": 0.2}, "needs_vision": true, "local_only": false},
+        "corrections": [{"id": "a", "delta": 0.2}]
+      },
+      "expected": [{"id": "a", "score": 0.88}, {"id": "c", "score": 0.76}]
+    }
+  ]
+}

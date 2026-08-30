@@ -1,0 +1,60 @@
+{
+  "protocol": "ADAPTER_CHALLENGE_MANIFEST/1",
+  "languages": ["python", "javascript"],
+  "challenges": [
+    {
+      "id": "hello_world",
+      "level": 1,
+      "kind": "pure",
+      "required_features": ["string", "record", "default"]
+    },
+    {
+      "id": "snake",
+      "level": 2,
+      "kind": "state_transition",
+      "required_features": ["record", "sequence", "branch", "collision", "state"]
+    },
+    {
+      "id": "pong",
+      "level": 3,
+      "kind": "simulation_step",
+      "required_features": ["float", "record", "branch", "boundary", "state"]
+    },
+    {
+      "id": "solitaire",
+      "level": 4,
+      "kind": "rule_system",
+      "required_features": ["sum_type", "sequence", "hidden_state", "invariant"]
+    },
+    {
+      "id": "file_watcher",
+      "level": 5,
+      "kind": "effect_core",
+      "required_features": ["map", "set_difference", "ordering", "filesystem_adapter"]
+    },
+    {
+      "id": "scientific_calculator",
+      "level": 6,
+      "kind": "parser_evaluator",
+      "required_features": ["tokenize", "precedence", "function", "float", "failure"]
+    },
+    {
+      "id": "kanban",
+      "level": 7,
+      "kind": "event_reducer",
+      "required_features": ["identity", "record", "sequence", "event", "custody"]
+    },
+    {
+      "id": "minesweeper",
+      "level": 8,
+      "kind": "graph_traversal",
+      "required_features": ["grid", "neighborhood", "queue", "fixed_point", "state"]
+    },
+    {
+      "id": "model_recommendations",
+      "level": 9,
+      "kind": "ranking_with_correction",
+      "required_features": ["filter", "weighted_product", "ranking", "correction", "evidence"]
+    }
+  ]
+}
