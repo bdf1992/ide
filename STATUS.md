@@ -38,6 +38,9 @@ Status words:
 | Projection module | STUB | `src/projection/` | POC has emitter/reconstructor; stable shared module not promoted |
 | Evidence/receipt module | STUB | `src/evidence/` | POC computes standing; shared product evidence layer not promoted |
 | Evidence receipt envelope | SPEC | `contracts/evidence-receipt.schema.json` | receipt shape only; no generic product receipt emitter/validator yet |
+| Skill progression boundary | STUB | `src/skill/` | owns wiki/skill/challenge/tree/build definitions and active-skill resolution rules; points/active skills grant no capability or workspace authority |
+| Skill build kernel | POC | `poc/skill-build-kernel/` | dependency-free deterministic validation/resolution candidate over the Kernel 0.1 accumulator learning fixture; no stable IDE integration or authenticated challenge runner claimed |
+| WikiSkill-style experience evolution | FUTURE | issue #26 | persistent raw trajectories, wiki maintenance, skill proposal/admission, XP/level policy, and public skill scouting remain outside POC 0.1 |
 | Agent semantic elaboration | FUTURE | `src/agent/`, POC 0.2 | LLM proposal path deliberately not in trusted POC 0.1 loop |
 | TSR neural elaboration harness | POC | `poc/neural-elaboration/` | deterministic multimodal corpus/evaluator candidate; no trained weights or stable integration claimed |
 | TSR proposal contract | SPEC | `poc/neural-elaboration/contract/` | model-neutral candidate/refusal envelope; model output remains untrusted |
@@ -58,6 +61,8 @@ For a provider specifically, promotion requires a real capability operation to b
 
 For a multi-host capability specifically, promotion requires explicit Chat behavior, Work behavior, provider-unavailable behavior, and evidence that stronger hosts do not redefine shared capability semantics or make the Chat core unusable.
 
+For skill progression specifically, promotion additionally requires a real challenge/evidence producer, deterministic failure cases, explicit Chat behavior, and proof that active-skill resolution does not become hidden capability authorization or semantic admission.
+
 ## Current next closure
 
 The next research closure remains POC 0.1:
@@ -67,7 +72,7 @@ The next research closure remains POC 0.1:
 3. correct any boundary/implementation defect;
 4. only then consider promoting semantic mode into the stable IDE shell.
 
-Provider POCs may evolve in parallel, but they do not bypass this closure or become stable product behavior without their own browser/provider acceptance evidence.
+Provider POCs and the isolated skill-build POC may evolve in parallel, but they do not bypass this closure or become stable product behavior without their own acceptance evidence.
 
 The POC 0.2 candidate harness may evolve independently as an isolated testbed, but it
 does not bypass this closure or earn integration into `index.html`.
