@@ -13,6 +13,7 @@ src/
 ├── semantic/     trusted semantic-kernel implementation after promotion
 ├── projection/   render/reconstruct/normalize surfaces around semantics
 ├── agent/        proposal/elaboration helpers outside trusted semantics
+├── skill/        owned wiki, skills, challenges, trees, builds, active-skill resolution
 ├── capability/   transport-neutral operation contracts
 ├── adapter/      chat/local/MCP/browser transport and host bindings
 ├── provider/     concrete implementation bindings behind capabilities
@@ -34,17 +35,22 @@ UI/product ------+          |
                          semantic kernel
                               |
                            evidence
+
+experience/evidence --> skill progression --> active skill set --> agent context
+                              |
+                              +-- never grants workspace/capability/semantic authority
 ```
 
 This diagram is conceptual, not a mandate that every module directly imports every layer shown.
 
 ## Rules
 
-- The semantic kernel must not depend on an LLM, UI, transport adapter, or provider-selection convenience.
-- Workspace custody must remain valid even when agent/provider features are unavailable.
+- The semantic kernel must not depend on an LLM, UI, transport adapter, provider-selection convenience, or progression state.
+- Workspace custody must remain valid even when agent/provider/skill features are unavailable.
 - Runtime APIs should expose execution results without deciding semantic standing.
 - Projection producers are untrusted relative to semantic admission/equivalence.
 - Evidence reports facts/results; it does not mutate semantic rules.
+- Skill progression may consume declared evidence to resolve an active skill set; points or active skills must not become hidden capability permission.
 - Capability contracts should remain useful across ChatGPT-side-panel and future local/MCP-shaped bindings.
 - Adapters make capabilities reachable; providers fulfill accepted capabilities against concrete substrates.
 - Provider availability must never silently widen capability meaning or authority.
