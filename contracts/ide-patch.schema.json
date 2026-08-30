@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/ide-patch.schema.json",
+  "title": "IDE_PATCH/1",
+  "description": "A proposed workspace mutation. It must pass revision/custody checks before application.",
+  "type": "object",
+  "required": ["protocol", "base_revision", "changes"],
+  "properties": {
+    "protocol": {"const": "IDE_PATCH/1"},
+    "base_revision": {"type": ["integer", "string"]},
+    "proposal_id": {"type": "string"},
+    "proposed_by": {"type": "string"},
+    "note": {"type": "string"},
+    "changes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "content"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "content": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
