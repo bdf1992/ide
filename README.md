@@ -117,4 +117,12 @@ Current language/research baseline: **Semantic Microkernel 0.1 architecture is f
 
 The larger concern boundaries under `src/` are intentionally **STUBS**, not a claim that the system has already been refactored into those modules. See [`STATUS.md`](./STATUS.md) for the authoritative implementation-state vocabulary.
 
+## Adapter challenge ladder
+
+[`challenges/`](./challenges/) contains nine bounded reference application cores—from
+Hello World through stateful games, a calculator, Kanban, file-difference observation,
+and corrected model ranking. Python and JavaScript are checked against one shared case
+oracle. This measures concrete translation work; it does not grant semantic-kernel
+standing or pretend Kernel 0.1 already represents those applications.
+
 POC 0.1 is not declared experimentally complete until that browser/Pyodide suite is actually executed in the supported surface and all required defeat cases pass. Do not expand the kernel merely to make the POC more impressive before that closure.

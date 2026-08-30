@@ -22,6 +22,7 @@ Status words:
 | Capability layer | STUB | `src/capability/` | transport-neutral names exist; shared implementation not extracted yet |
 | Adapter layer | STUB | `src/adapter/` | future chat/local/MCP bindings; no shared adapter runtime yet |
 | Local workbench adapter | POC | `local/server.py`, `index.html` | optional loopback host + model health/candidate proposal HTTP routes; not MCP |
+| Cross-language adapter challenges | POC | `challenges/` | nine bounded cores; shared cases across Python/JavaScript; observational regression only |
 | Workspace module | STUB | `src/workspace/` | boundary extracted conceptually; implementation still embedded in `index.html` |
 | Runtime module | STUB | `src/runtime/` | boundary named; implementation still embedded in stable/P0.1 artifacts |
 | Semantic Kernel 0.1 specification | SPEC | `SEMANTIC-KERNEL.md` | canonical accumulator semantics frozen for P0.1 |
