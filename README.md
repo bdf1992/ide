@@ -26,6 +26,18 @@ Open Chat IDE is one product with multiple host profiles, not separate Chat and 
 
 See [`architecture/HOST-PROFILES.md`](./architecture/HOST-PROFILES.md) and [`PARITY.md`](./PARITY.md).
 
+## Chat artifact export
+
+`index.html` is the canonical Chat shell. When a conversation or host needs an attachable HTML artifact, export that exact shell instead of maintaining a separate Chat implementation:
+
+```bash
+python scripts/build_chat_artifact.py
+```
+
+The default output is `dist/open-chat-ide-chat.html`. The exporter copies `index.html` byte-for-byte and verifies that the output hash matches the canonical input, so the attachment cannot silently drift into a second product surface.
+
+Generated `dist/` output is a delivery artifact, not a new source-of-truth. Work-specific providers may strengthen the same IDE when available; they are not required to build or open the Chat artifact.
+
 ## Architecture map
 
 The repository now separates **architecture shape** from **implementation standing**:
