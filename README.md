@@ -28,7 +28,7 @@ Do not replace ordinary IDE primitives with custom teaching dashboards when file
 - `Ctrl+Enter` run
 - Cursor line/column status
 - Monaco language modes for common text/code files
-- Python hover documentation for keywords and common built-ins
+- Python hover documentation for core syntax
 - Python built-in completion names
 - xterm.js terminal surface
 - Pyodide-backed Python execution
@@ -36,10 +36,11 @@ Do not replace ordinary IDE primitives with custom teaching dashboards when file
 - Browser workspace persistence through local storage
 - Shared IDE state packet to ChatGPT
 - Preview/apply patch seam from ChatGPT
+- Revision-aware patch refusal when a patch declares a stale `base_revision`
 
 ## Persistence
 
-Browser local storage is convenience state, not the durable system of record. The GitHub repository is the durable product source. Workspace export/import and stronger revision-safe persistence are planned before the browser workspace should be treated as durable project storage.
+Browser local storage is convenience state, not the durable system of record. The GitHub repository is the durable product source. Workspace export/import and stronger portable persistence should land before the browser workspace is treated as durable project storage.
 
 ## Agent behavior
 
@@ -51,8 +52,10 @@ For future work sessions, start from this repository rather than reconstructing 
 
 Read [`CONTRIBUTING.md`](./CONTRIBUTING.md). Changes should preserve the minimal-core principle and demonstrate why a new capability belongs in the IDE core rather than in agent behavior or an existing IDE primitive.
 
+Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`](./THIRD_PARTY.md).
+
 ## Status
 
-Current baseline: **v0.2 prototype**.
+Current baseline: **side-panel prototype with revision-aware chat patching**.
 
-The next conservative core pass is expected to focus on durable workspace import/export, file/folder operations, search, diagnostics, and revision-safe agent patches before adding richer teaching behavior.
+The next conservative core pass should focus on durable workspace import/export, file/folder operations, search, diagnostics, and stronger language intelligence before adding richer teaching behavior.
