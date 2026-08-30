@@ -1,7 +1,9 @@
 (function (root, factory) {
-  const api = factory(root.OpenChatWorkspaceMaterialization);
-  if (typeof module === 'object' && module.exports) module.exports = api;
-  else root.OpenChatPyodideWorkspace = api;
+  if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('./materialize.js'));
+  } else {
+    root.OpenChatPyodideWorkspace = factory(root.OpenChatWorkspaceMaterialization);
+  }
 })(typeof globalThis !== 'undefined' ? globalThis : this, function (materializationApi) {
   'use strict';
 
