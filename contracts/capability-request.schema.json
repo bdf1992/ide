@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/capability-request.schema.json",
+  "title": "CAPABILITY_REQUEST/1",
+  "description": "A typed request for one bounded capability. A request is not authorization or evidence of execution.",
+  "type": "object",
+  "required": ["protocol", "request_id", "capability", "actor", "input"],
+  "properties": {
+    "protocol": {"const": "CAPABILITY_REQUEST/1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "capability": {"type": "string", "minLength": 1},
+    "actor": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"enum": ["human", "agent", "ui", "system"]},
+        "id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "workspace_revision": {"type": ["integer", "string"]},
+    "kernel_version": {"type": "string"},
+    "input": {},
+    "requested_effect": {"type": "string"}
+  },
+  "additionalProperties": false
+}

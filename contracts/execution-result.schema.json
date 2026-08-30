@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/execution-result.schema.json",
+  "title": "EXECUTION_RESULT/1",
+  "description": "Observed result from one bounded execution. It records behavior, not semantic proof.",
+  "type": "object",
+  "required": ["protocol", "execution_id", "runtime", "status", "observations"],
+  "properties": {
+    "protocol": {"const": "EXECUTION_RESULT/1"},
+    "execution_id": {"type": "string", "minLength": 1},
+    "program_id": {"type": "string"},
+    "projection_id": {"type": "string"},
+    "runtime": {
+      "type": "object",
+      "required": ["kind", "version"],
+      "properties": {
+        "kind": {"enum": ["kernel-reference", "cpython-pyodide", "other"]},
+        "version": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "status": {"enum": ["success", "failure"]},
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "kind": {"type": "string"},
+        "message": {"type": "string"}
+      },
+      "required": ["kind"],
+      "additionalProperties": false
+    },
+    "observations": {"type": "array", "items": {}},
+    "store": {"type": "object"}
+  },
+  "additionalProperties": false
+}

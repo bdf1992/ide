@@ -12,13 +12,14 @@ Before making changes, read:
 4. `architecture/TYPOLOGY.md`
 5. `architecture/TOPOLOGY.md`
 6. `architecture/AI-NATIVE.md`
-7. `PARITY.md`
-8. `IDE-SKILL.md`
-9. `CONTRIBUTING.md`
-10. `AGENTIC-LANGUAGE.md`
-11. `SEMANTIC-KERNEL.md`
-12. `RESEARCH.md`
-13. the files you intend to modify
+7. `contracts/README.md`
+8. `PARITY.md`
+9. `IDE-SKILL.md`
+10. `CONTRIBUTING.md`
+11. `AGENTIC-LANGUAGE.md`
+12. `SEMANTIC-KERNEL.md`
+13. `RESEARCH.md`
+14. the files you intend to modify
 
 Do not reconstruct architecture from chat history when the repository can answer the question.
 
@@ -32,7 +33,7 @@ Treat the status vocabulary in `STATUS.md` literally:
 - **SPEC** — contract is defined, implementation evidence may still be incomplete;
 - **FUTURE** — direction only.
 
-Never infer implementation from a directory, README, type name, capability name, architecture diagram, or agent description.
+Never infer implementation from a directory, README, schema, type name, capability name, architecture diagram, or agent description.
 
 When adding a stub, state what it owns, what it does not own, where current behavior actually lives, and what would justify promotion.
 
@@ -75,6 +76,27 @@ Intended concerns:
 - `evidence` — diagnostics/tests/receipts/standing.
 
 Do not move working code into these directories solely for architectural appearance. Extract only when the boundary is useful and parity/evidence can be preserved.
+
+## Crossing contract rules
+
+`contracts/` describes versioned envelopes crossing concern boundaries. These schemas are shape constraints, not a message bus, service locator, permission system, or proof engine.
+
+Keep these distinctions explicit:
+
+- state packet = supplied evidence;
+- patch = proposed mutation;
+- capability request = requested action;
+- capability result = bounded outcome;
+- semantic candidate = proposed meaning;
+- semantic program = admitted meaning;
+- execution result = observed behavior;
+- evidence receipt = computed record of checks/standing.
+
+A valid envelope may still be refused by custody, authority, semantic, or runtime gates.
+
+Do not collapse request/result, candidate/admitted, execution/evidence, or state/proposal into the same object merely for convenience.
+
+A contract becomes IMPLEMENTED only when real producer and consumer code validate the same versioned shape in the supported product path.
 
 ## Agentic-language invariants
 
@@ -171,12 +193,13 @@ For agentic-language work additionally verify:
 - source IR and reconstructed target IR where equivalence is claimed;
 - actual target parser/runtime use rather than simulated evidence when the POC requires independence.
 
-For architecture/stub work additionally verify:
+For architecture/stub/contract work additionally verify:
 
 - `STATUS.md` matches reality;
 - typology/ownership is not contradictory;
 - topology introduces no hidden authority edge;
-- a STUB is not described as product capability;
+- a STUB/SPEC is not described as product capability;
+- contract producer/consumer/authority roles are stated;
 - parity exceptions are explicit and temporary.
 
 For bug fixes, add or record a reproducible before/after case when practical.
@@ -187,7 +210,7 @@ A useful agent handoff states:
 
 - what changed;
 - what was intentionally not changed;
-- whether the change is projection, normalization, kernel, IDE, agent, adapter, architecture, or status behavior;
+- whether the change is projection, normalization, kernel, IDE, agent, adapter, contract, architecture, or status behavior;
 - evidence used to verify it;
 - semantic kernel version and standing when relevant;
 - any known browser/ChatGPT sandbox limitation;

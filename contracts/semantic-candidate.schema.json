@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/semantic-candidate.schema.json",
+  "title": "SEMANTIC_CANDIDATE/1",
+  "description": "Proposed canonical meaning from a parser, human, or model. Candidate status carries no execution standing.",
+  "type": "object",
+  "required": ["protocol", "candidate_id", "kernel_version", "proposed_by", "source", "ir", "status"],
+  "properties": {
+    "protocol": {"const": "SEMANTIC_CANDIDATE/1"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "kernel_version": {"type": "string", "minLength": 1},
+    "proposed_by": {
+      "type": "object",
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"enum": ["parser", "human", "agent", "system"]},
+        "id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "text"],
+      "properties": {
+        "kind": {"enum": ["personal", "python", "math", "scrambled", "natural-language", "other"]},
+        "text": {"type": "string"},
+        "dialect": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "ir": {"type": "object"},
+    "status": {"const": "proposed"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

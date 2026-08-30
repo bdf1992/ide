@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/ide-state-packet.schema.json",
+  "title": "IDE_STATE_PACKET/1",
+  "description": "Workspace evidence supplied to an agent or capability. Evidence only; it grants no mutation authority.",
+  "type": "object",
+  "required": ["protocol", "workspace_revision", "active_file", "open_tabs", "files"],
+  "properties": {
+    "protocol": {"const": "IDE_STATE_PACKET/1"},
+    "workspace_revision": {"type": ["integer", "string"]},
+    "active_file": {"type": "string"},
+    "open_tabs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "selection": {"type": "string", "default": ""},
+    "files": {"type": "object", "additionalProperties": {"type": "string"}},
+    "terminal": {"type": "string", "default": ""},
+    "diagnostics": {"type": "array", "items": {"type": "object"}},
+    "semantic": {
+      "type": "object",
+      "properties": {
+        "kernel_version": {"type": "string"},
+        "standing": {"type": "string"},
+        "receipt_ids": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "canonical_repo": {"type": "string"},
+    "request": {"type": "string"}
+  },
+  "additionalProperties": true
+}

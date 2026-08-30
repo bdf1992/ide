@@ -2,7 +2,7 @@
 
 Typology answers: **what kind of thing is this?**
 
-The goal is to prevent files, agents, semantic programs, receipts, experiments, and adapters from being treated as interchangeable just because they all contain data or code.
+The goal is to prevent files, agents, semantic programs, receipts, experiments, adapters, and contracts from being treated as interchangeable just because they all contain data or code.
 
 ## Core kinds
 
@@ -13,6 +13,7 @@ The goal is to prevent files, agents, semantic programs, receipts, experiments, 
 | Workspace state | files, revisions, tabs, selections, terminal evidence | authoritative for the supplied workspace snapshot/revision |
 | IDE primitive | editor, terminal, explorer, diagnostics, command | interaction surface; does not define semantics |
 | Capability | named operation such as `file.read`, `python.run`, `semantic.verify` | defines an action boundary, not permission by itself |
+| Contract | versioned data shape crossing a boundary | constrains representation; grants no ambient authority |
 | Adapter | transport/runtime binding for a capability | translates across boundaries; cannot enlarge authority |
 | Semantic program | canonical admitted IR under a declared kernel version | authoritative meaning for the semantic lane |
 | Projection | textual/structural rendering of admitted semantics | expression of meaning; not authority over meaning |
@@ -31,6 +32,16 @@ The goal is to prevent files, agents, semantic programs, receipts, experiments, 
 ```text
 agent output -> candidate -> explicit admission/check -> standing
 ```
+
+### Contract is not capability or authority
+
+```text
+contract = what data may cross
+capability = what operation may be requested
+authority = whether this actor may cause the effect
+```
+
+A valid request envelope can still be refused.
 
 ### Projection is not semantics
 
