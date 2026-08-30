@@ -1,4 +1,5 @@
 import {readFile} from "node:fs/promises";
+import {isDeepStrictEqual} from "node:util";
 
 import {ChallengeError, solve} from "./reference.mjs";
 
@@ -16,7 +17,7 @@ for (const fixture of cases) {
   }
   const ok = fixture.expected_error
     ? error === fixture.expected_error
-    : error === null && JSON.stringify(observed) === JSON.stringify(fixture.expected);
+    : error === null && isDeepStrictEqual(observed, fixture.expected);
   results.push({id: fixture.id, challenge: fixture.challenge, ok, observed, error});
 }
 
