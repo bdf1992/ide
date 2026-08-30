@@ -6,11 +6,11 @@ This repository also contains the agentic-language research system. Changes to l
 
 ## Before changing code
 
-1. Read `README.md`, `STATUS.md`, `architecture/README.md`, `architecture/TYPOLOGY.md`, `architecture/TOPOLOGY.md`, `architecture/AI-NATIVE.md`, `PARITY.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
-2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, projection extension, normalization extension, kernel extension, architecture/status change, or genuinely new UI.
+1. Read `README.md`, `STATUS.md`, `architecture/README.md`, `architecture/TYPOLOGY.md`, `architecture/TOPOLOGY.md`, `architecture/AI-NATIVE.md`, `contracts/README.md`, `PARITY.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
+2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, contract change, projection extension, normalization extension, kernel extension, architecture/status change, or genuinely new UI.
 3. Prefer the smallest layer that can solve the problem.
 4. Check whether Monaco, xterm.js, Pyodide, or an existing browser API already provides the capability.
-5. Check `STATUS.md` before assuming a named directory or architecture component is implemented.
+5. Check `STATUS.md` before assuming a named directory, schema, or architecture component is implemented.
 
 ## Architecture and status discipline
 
@@ -33,6 +33,30 @@ Use the status words literally:
 - **STUB** — boundary named, implementation incomplete/absent;
 - **SPEC** — contract defined, evidence/implementation may be incomplete;
 - **FUTURE** — direction only.
+
+## Crossing contract discipline
+
+Use `contracts/` for stable boundary shapes, not for internal convenience objects.
+
+Before adding or changing a contract, identify:
+
+- the producer;
+- the consumer;
+- the boundary crossed;
+- what authority the object does **not** carry;
+- the versioning impact;
+- whether a real producer/consumer pair exists yet.
+
+Keep paired distinctions separate:
+
+```text
+state evidence      != mutation proposal
+capability request  != capability result
+semantic candidate  != admitted semantic program
+execution result    != evidence receipt
+```
+
+A schema is SPEC until supported product code validates it on both sides of a crossing. Do not promote a contract because examples serialize successfully.
 
 ## Design principles
 
@@ -143,6 +167,9 @@ A PR should answer:
 - What class of change is this?
 - Which typology/concern owns it?
 - What topology/boundary does it cross?
+- Which contract crosses that boundary, if any?
+- Who produces and consumes that contract?
+- What authority does the contract explicitly not carry?
 - Why does it belong in this layer?
 - What is the status before and after: IMPLEMENTED / POC / STUB / SPEC / FUTURE?
 - Why is any status promotion earned?
@@ -171,6 +198,7 @@ A PR should answer:
 - Never encode verification status as decorative/static UI state when it should be computed.
 - Keep independent verifier code genuinely independent from producer shortcuts when independence is part of the research claim.
 - Keep STUB modules free of copied placeholder implementation unless the placeholder itself is the explicit experiment.
+- Keep contract validators separate from authority decisions; shape validity alone must never grant permission.
 
 ## Agent and patch safety
 
