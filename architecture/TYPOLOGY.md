@@ -2,7 +2,7 @@
 
 Typology answers: **what kind of thing is this?**
 
-The goal is to prevent files, agents, semantic programs, receipts, experiments, adapters, and contracts from being treated as interchangeable just because they all contain data or code.
+The goal is to prevent files, agents, semantic programs, receipts, experiments, adapters, providers, and contracts from being treated as interchangeable just because they all contain data or code.
 
 ## Core kinds
 
@@ -14,7 +14,8 @@ The goal is to prevent files, agents, semantic programs, receipts, experiments, 
 | IDE primitive | editor, terminal, explorer, diagnostics, command | interaction surface; does not define semantics |
 | Capability | named operation such as `file.read`, `python.run`, `semantic.verify` | defines an action boundary, not permission by itself |
 | Contract | versioned data shape crossing a boundary | constrains representation; grants no ambient authority |
-| Adapter | transport/runtime binding for a capability | translates across boundaries; cannot enlarge authority |
+| Adapter | host/transport binding for a capability | makes an operation reachable; cannot enlarge capability meaning or authority |
+| Provider | concrete implementation binding behind a capability | may fulfill an accepted operation; availability grants no authority by itself |
 | Semantic program | canonical admitted IR under a declared kernel version | authoritative meaning for the semantic lane |
 | Projection | textual/structural rendering of admitted semantics | expression of meaning; not authority over meaning |
 | Candidate semantics | proposed IR not yet admitted | unresolved/provisional |
@@ -42,6 +43,15 @@ authority = whether this actor may cause the effect
 ```
 
 A valid request envelope can still be refused.
+
+### Adapter is not provider
+
+```text
+adapter  = how a host/transport reaches a capability
+provider = how an accepted capability reaches concrete machinery
+```
+
+An MCP adapter and a browser UI may call the same capability. A Tree-sitter, Git, LSP, or runtime provider may fulfill it. Neither transport reachability nor provider availability grants permission to cause the effect.
 
 ### Projection is not semantics
 
@@ -74,6 +84,7 @@ Every IDE change should primarily be one of:
 - **IDE primitive**;
 - **agent behavior**;
 - **adapter/protocol**;
+- **provider integration**;
 - **new UI**.
 
 These classifications are orthogonal. For example, a projection extension might require no new UI at all.

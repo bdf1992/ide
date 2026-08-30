@@ -11,15 +11,16 @@ Before making changes, read:
 3. `architecture/README.md`
 4. `architecture/TYPOLOGY.md`
 5. `architecture/TOPOLOGY.md`
-6. `architecture/AI-NATIVE.md`
-7. `contracts/README.md`
-8. `PARITY.md`
-9. `IDE-SKILL.md`
-10. `CONTRIBUTING.md`
-11. `AGENTIC-LANGUAGE.md`
-12. `SEMANTIC-KERNEL.md`
-13. `RESEARCH.md`
-14. the files you intend to modify
+6. `architecture/PROVIDERS.md`
+7. `architecture/AI-NATIVE.md`
+8. `contracts/README.md`
+9. `PARITY.md`
+10. `IDE-SKILL.md`
+11. `CONTRIBUTING.md`
+12. `AGENTIC-LANGUAGE.md`
+13. `SEMANTIC-KERNEL.md`
+14. `RESEARCH.md`
+15. the files you intend to modify
 
 Do not reconstruct architecture from chat history when the repository can answer the question.
 
@@ -33,7 +34,7 @@ Treat the status vocabulary in `STATUS.md` literally:
 - **SPEC** — contract is defined, implementation evidence may still be incomplete;
 - **FUTURE** — direction only.
 
-Never infer implementation from a directory, README, schema, type name, capability name, architecture diagram, or agent description.
+Never infer implementation from a directory, README, schema, type name, capability name, architecture diagram, provider name, or agent description.
 
 When adding a stub, state what it owns, what it does not own, where current behavior actually lives, and what would justify promotion.
 
@@ -58,6 +59,7 @@ Use `architecture/AI-NATIVE.md` as the project-specific definition.
 - Human acceptance/correction is a normal protocol operation, not a failure of autonomy.
 - Useful work should leave inspectable state/evidence for the next human or agent.
 - Repeated accepted neural inference should become deterministic rules/adapters/codebooks when practical.
+- Proven IDE/runtime machinery should sit behind explicit provider boundaries when extraction is useful; do not reimplement substrate merely to make it agent-addressable.
 - Do not add LLM calls merely to make a module look AI-native.
 
 ## Concern boundaries
@@ -72,14 +74,15 @@ Intended concerns:
 - `projection` — render/reconstruct semantic surfaces;
 - `agent` — proposal/elaboration behavior outside trusted semantics;
 - `capability` — transport-neutral operation contracts;
-- `adapter` — environment/transport bindings;
+- `adapter` — host/transport bindings;
+- `provider` — concrete implementation bindings behind accepted capabilities;
 - `evidence` — diagnostics/tests/receipts/standing.
 
 Do not move working code into these directories solely for architectural appearance. Extract only when the boundary is useful and parity/evidence can be preserved.
 
 ## Crossing contract rules
 
-`contracts/` describes versioned envelopes crossing concern boundaries. These schemas are shape constraints, not a message bus, service locator, permission system, or proof engine.
+`contracts/` describes versioned envelopes crossing concern boundaries. These schemas are shape constraints, not a message bus, service locator, permission system, provider registry, or proof engine.
 
 Keep these distinctions explicit:
 
@@ -92,7 +95,7 @@ Keep these distinctions explicit:
 - execution result = observed behavior;
 - evidence receipt = computed record of checks/standing.
 
-A valid envelope may still be refused by custody, authority, semantic, or runtime gates.
+A valid envelope may still be refused by custody, authority, semantic, provider-availability, or runtime gates.
 
 Do not collapse request/result, candidate/admitted, execution/evidence, or state/proposal into the same object merely for convenience.
 
@@ -139,23 +142,26 @@ Do not smuggle a kernel extension into a projection or normalization change.
 - Make the smallest coherent change that satisfies the request.
 - Preserve unrelated files and behavior.
 - Prefer reversible and reviewable changes.
-- Do not add a framework because a small adapter would work.
-- Do not duplicate capability already supplied by Monaco, xterm.js, Pyodide, browser APIs, or another selected dependency.
+- Do not add a framework because a small adapter or provider would work.
+- Do not duplicate capability already supplied by Monaco, xterm.js, Pyodide, browser APIs, an LSP server, Tree-sitter, Git, or another selected dependency.
 - Keep browser-preview restrictions in mind: CDN/module loading may fail, so important editing/state workflows should degrade safely.
 - Avoid hidden network dependencies for core user data or workspace custody.
 - When adding a dependency, pin or clearly identify the version and document why it is needed.
 - Keep the side-panel artifact understandable without a large build system until a build system is clearly justified.
 - For POC 0.1, do not broaden beyond the reference accumulator semantics unless a prerequisite is genuinely missing.
 - Preserve concern topology: convenience layers may depend inward on contracts, but must not redefine custody, semantics, or standing.
+- Resolve a provider only after the operation and applicable authority/custody gates are known; provider availability never grants authority.
+- Provider fallback may change availability or performance but must not silently change capability meaning or scope.
 
 ## IDE change classification
 
-Before adding UI, classify the requested behavior:
+Before adding UI or IDE machinery, classify the requested behavior:
 
 - **IDE primitive** — use an existing editor/terminal/language feature.
 - **Agent behavior** — implement in `IDE-SKILL.md` or prompt/command behavior.
-- **Adapter/protocol** — implement in the thin workspace/MCP-shaped seam.
-- **New UI** — only when the first three cannot express the requirement clearly.
+- **Adapter/protocol** — implement in the thin workspace/MCP-shaped transport seam.
+- **Provider integration** — bind an existing capability to proven implementation machinery.
+- **New UI** — only when the first four cannot express the requirement clearly.
 
 A new permanent panel should be treated as a design decision, not a convenience.
 
@@ -169,7 +175,7 @@ When revision information exists:
 - reject or re-derive stale patches;
 - never silently merge conflicting full-file replacements.
 
-Keep capability names transport-neutral where possible so a later local MCP adapter can expose the same semantics.
+Keep capability names transport-neutral where possible so a later local MCP adapter can expose the same semantics. Keep them provider-neutral where practical so browser and local substrates can fulfill the same operation without changing its meaning.
 
 For the language layer, prefer similarly explicit operations such as `semantic.propose`, `semantic.admit`, `projection.render`, `projection.reconstruct`, `semantic.verify`, and `receipt.inspect`; capability naming does not grant authority.
 
@@ -184,6 +190,13 @@ For any behavioral change, verify at the narrowest useful level:
 - existing keyboard shortcuts continue to work;
 - workspace state is preserved across ordinary edits/tab changes;
 - agent patches do not modify unrelated files.
+
+For provider work additionally verify:
+
+- the capability operation has unchanged request/result meaning across the provider boundary;
+- provider unavailability is explicit and does not corrupt workspace state;
+- fallback does not widen authority or silently change semantics;
+- concrete provider/version claims are evidenced rather than inferred from a stub.
 
 For agentic-language work additionally verify:
 
@@ -210,7 +223,7 @@ A useful agent handoff states:
 
 - what changed;
 - what was intentionally not changed;
-- whether the change is projection, normalization, kernel, IDE, agent, adapter, contract, architecture, or status behavior;
+- whether the change is projection, normalization, kernel, IDE, agent, adapter, provider, contract, architecture, or status behavior;
 - evidence used to verify it;
 - semantic kernel version and standing when relevant;
 - any known browser/ChatGPT sandbox limitation;
