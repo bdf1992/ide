@@ -9,9 +9,10 @@ Architecture documents are contracts and maps. Implementation standing lives in 
 1. [`TYPOLOGY.md`](./TYPOLOGY.md) — what kinds of things exist and what authority each kind carries.
 2. [`TOPOLOGY.md`](./TOPOLOGY.md) — how those things may connect and cross boundaries.
 3. [`PROVIDERS.md`](./PROVIDERS.md) — how accepted capabilities bind to proven implementation substrates.
-4. [`AI-NATIVE.md`](./AI-NATIVE.md) — what "AI-native" means in this repository.
-5. [`../PARITY.md`](../PARITY.md) — how research and the stable IDE remain one product line.
-6. [`../STATUS.md`](../STATUS.md) — what is implemented, experimental, stubbed, or future.
+4. [`HOST-PROFILES.md`](./HOST-PROFILES.md) — how Chat, Work, and future local hosts vary without forking capability meaning or custody.
+5. [`AI-NATIVE.md`](./AI-NATIVE.md) — what "AI-native" means in this repository.
+6. [`../PARITY.md`](../PARITY.md) — how research, stable IDE behavior, and host profiles remain one product line.
+7. [`../STATUS.md`](../STATUS.md) — what is implemented, experimental, stubbed, or future.
 
 ## System shape
 
@@ -51,6 +52,22 @@ Human + ChatGPT conversation
 ```
 
 `Pyright*` is an example local/server language provider, not a claim that the official Pyright language server runs directly in every browser sandbox.
+
+## Host profiles
+
+The shared shell and capability contracts may run against different host/provider sets:
+
+```text
+                 shared IDE core
+            capability / custody / evidence
+                         |
+              host profile resolution
+                 /              \
+              Chat              Work
+       browser-contained    extended providers
+```
+
+Chat is the minimum supported product profile. Work may provide stronger providers or transports but must not redefine capability meaning, workspace custody, or evidence standing. See [`HOST-PROFILES.md`](./HOST-PROFILES.md).
 
 ## Dependency direction
 

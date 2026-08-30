@@ -6,11 +6,11 @@ This repository also contains the agentic-language research system. Changes to l
 
 ## Before changing code
 
-1. Read `README.md`, `STATUS.md`, `architecture/README.md`, `architecture/TYPOLOGY.md`, `architecture/TOPOLOGY.md`, `architecture/AI-NATIVE.md`, `contracts/README.md`, `PARITY.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
-2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, contract change, projection extension, normalization extension, kernel extension, architecture/status change, or genuinely new UI.
+1. Read `README.md`, `STATUS.md`, `architecture/README.md`, `architecture/TYPOLOGY.md`, `architecture/TOPOLOGY.md`, `architecture/PROVIDERS.md`, `architecture/HOST-PROFILES.md`, `architecture/AI-NATIVE.md`, `contracts/README.md`, `PARITY.md`, `AGENTS.md`, `IDE-SKILL.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, and `RESEARCH.md`.
+2. Reproduce or describe the need in terms of an IDE primitive, agent behavior, adapter/protocol, provider, contract change, projection extension, normalization extension, kernel extension, architecture/status change, or genuinely new UI.
 3. Prefer the smallest layer that can solve the problem.
-4. Check whether Monaco, xterm.js, Pyodide, or an existing browser API already provides the capability.
-5. Check `STATUS.md` before assuming a named directory, schema, or architecture component is implemented.
+4. Check whether Monaco, xterm.js, Pyodide, Tree-sitter, Git/LSP tooling, or an existing browser API already provides the underlying machinery.
+5. Check `STATUS.md` before assuming a named directory, schema, architecture component, host profile, or provider is implemented.
 
 ## Architecture and status discipline
 
@@ -81,9 +81,22 @@ Do not add a custom dashboard when an ordinary IDE surface can carry the behavio
 
 Pedagogical behavior should usually live in `IDE-SKILL.md`, contextual documentation, commands, traces, diagnostics, correspondence, or chat reasoning rather than permanent visual chrome.
 
-### Preserve the in-chat constraint
+### Preserve the Chat baseline
 
-The primary artifact must remain suitable for ChatGPT side-panel use. Changes that require a local server, native process, or privileged browser API must be optional adapters rather than assumptions of the chat build.
+Chat is the minimum supported product host, not a disposable fallback tier.
+
+The primary artifact must remain suitable for ChatGPT side-panel/browser use. Changes that require Cloud Browser, a local server, native process, privileged browser API, MCP service, or another stronger host must be optional adapters/providers rather than assumptions of the Chat build.
+
+Work and future local hosts may provide stronger implementations behind the same capability contracts. They may not silently redefine capability meaning, workspace custody, or authority.
+
+For any capability intended to be shared product infrastructure, state explicitly:
+
+- Chat behavior;
+- Work behavior;
+- provider-unavailable/degraded behavior;
+- which semantics and gates remain invariant across hosts.
+
+Core acceptance fixtures must remain Chat-compatible. Work-specific fixtures may extend the acceptance set but must not replace the Chat baseline.
 
 ### Preserve graceful degradation
 
@@ -154,7 +167,7 @@ For non-trivial work:
 3. Work on a focused branch.
 4. Keep commits small enough to explain.
 5. Open a PR that states the behavior/status before and after the change.
-6. Include verification evidence and known side-panel limitations.
+6. Include verification evidence and known side-panel/host limitations.
 7. Prefer squash merge for focused feature/fix PRs unless preserving commit history has a specific value.
 
 Tiny documentation corrections may be committed directly when repository policy permits it.
@@ -175,14 +188,17 @@ A PR should answer:
 - Why is any status promotion earned?
 - What existing open-source primitive was reused?
 - What new dependency, if any, was introduced and why?
-- Does the side-panel/fallback path still work?
-- What was tested or manually verified?
+- What is the Chat behavior?
+- What is the Work behavior?
+- What happens when the stronger provider/host is unavailable?
+- Does the Chat side-panel/fallback path still work?
+- What was tested or manually verified in each affected host profile?
 - Does it preserve unrelated workspace state?
 - Does it introduce or alter `IDE_STATE_PACKET/1` / `IDE_PATCH/1` semantics?
 - Does it alter the semantic kernel version or trusted computing base?
 - Which S-level is actually earned, and from what computed evidence?
 - Which negative/defeat cases were tested?
-- Did IDE/research parity change, and is any exception documented?
+- Did IDE/research/host parity change, and is any exception documented?
 
 ## Code practices
 
@@ -199,6 +215,7 @@ A PR should answer:
 - Keep independent verifier code genuinely independent from producer shortcuts when independence is part of the research claim.
 - Keep STUB modules free of copied placeholder implementation unless the placeholder itself is the explicit experiment.
 - Keep contract validators separate from authority decisions; shape validity alone must never grant permission.
+- Keep host-specific adapters/providers outside shared capability semantics.
 
 ## Agent and patch safety
 
@@ -229,13 +246,15 @@ The repository's own project license should be chosen explicitly by the owner; d
 
 IDE-quality work should favor:
 
+- closing the Chat-browser acceptance of the current provider POCs;
+- promoting workspace materialization into the stable browser Python path when earned;
 - durable workspace export/import;
 - folders and rename/delete operations;
 - find-in-file/workspace;
 - diagnostics/Problems;
 - stronger Python language intelligence where practical in-browser;
 - revision-safe agent patches;
-- a transport-neutral capability layer that can later back a local MCP adapter.
+- a transport-neutral capability layer that can back Work/local adapters without making them Chat prerequisites.
 
 Agentic-language work should currently favor only POC 0.1:
 

@@ -18,17 +18,27 @@ The core stays intentionally boring:
 
 Do not replace ordinary IDE primitives with custom teaching dashboards when files, tabs, hover docs, completion, terminal, diagnostics, tests, diffs, or commands can express the need.
 
+## Host portability invariant
+
+Open Chat IDE is one product with multiple host profiles, not separate Chat and Work forks.
+
+**Chat is the minimum supported product profile.** The browser/side-panel core must remain useful without assuming Cloud Browser, localhost, native processes, MCP, or Work-only providers. Work may add stronger providers and transports behind the same capability contracts, custody rules, and evidence semantics.
+
+See [`architecture/HOST-PROFILES.md`](./architecture/HOST-PROFILES.md) and [`PARITY.md`](./PARITY.md).
+
 ## Architecture map
 
 The repository now separates **architecture shape** from **implementation standing**:
 
 - [`architecture/TYPOLOGY.md`](./architecture/TYPOLOGY.md) — what kinds of things exist and what authority each kind has.
 - [`architecture/TOPOLOGY.md`](./architecture/TOPOLOGY.md) — which boundaries may connect and in what direction.
+- [`architecture/PROVIDERS.md`](./architecture/PROVIDERS.md) — how capabilities bind to concrete IDE/runtime machinery.
+- [`architecture/HOST-PROFILES.md`](./architecture/HOST-PROFILES.md) — how Chat, Work, and future local hosts vary without forking the product.
 - [`architecture/AI-NATIVE.md`](./architecture/AI-NATIVE.md) — the repository-specific meaning of AI-native design.
 - [`contracts/README.md`](./contracts/README.md) — versioned draft envelopes allowed to cross those boundaries; contracts carry shape, not ambient authority.
 - [`src/README.md`](./src/README.md) — future implementation-boundary stubs; their presence is not an implementation claim.
 - [`STATUS.md`](./STATUS.md) — explicit IMPLEMENTED / POC / STUB / SPEC / FUTURE ledger.
-- [`PARITY.md`](./PARITY.md) — one-product parity contract between the stable IDE and research artifacts.
+- [`PARITY.md`](./PARITY.md) — one-product parity contract across the stable IDE, research artifacts, and host profiles.
 
 The architectural skeleton is intentionally ahead of extracted modules. Working behavior remains where it is until promotion/extraction is justified by evidence.
 
@@ -89,6 +99,8 @@ For future work sessions, start from this repository rather than reconstructing 
 
 Read [`CONTRIBUTING.md`](./CONTRIBUTING.md). Changes should preserve the minimal-core principle and demonstrate why a new capability belongs in the IDE core rather than in agent behavior or an existing IDE primitive.
 
+Shared capability changes must additionally state Chat behavior, Work behavior, and provider-unavailable behavior. Work-specific machinery may strengthen the IDE but must remain optional to the Chat baseline unless the product requirement is explicitly changed.
+
 Semantic-language contributions must additionally classify themselves as a projection extension, normalization extension, or kernel extension. Kernel changes carry the highest burden of evidence.
 
 Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`](./THIRD_PARTY.md).
@@ -98,6 +110,8 @@ Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`
 Current IDE baseline: **side-panel prototype with revision-aware chat patching**.
 
 Current language/research baseline: **Semantic Microkernel 0.1 architecture is frozen; an executable POC 0.1 implementation candidate exists under `poc/`, with real CPython `ast.parse` S2 checking, independent S3 reconstruction, S4 observation comparison, and a built-in defeat suite**.
+
+Current host baseline: **Chat is IMPLEMENTED as the portable browser/side-panel profile; Work is a SPEC for optional stronger adapters/providers, not a second product implementation**.
 
 The larger concern boundaries under `src/` are intentionally **STUBS**, and the boundary envelopes under `contracts/` are intentionally **SPECS**. Neither directory is a claim that a shared modular runtime, bus, or validator already exists. See [`STATUS.md`](./STATUS.md) for the authoritative implementation-state vocabulary.
 
