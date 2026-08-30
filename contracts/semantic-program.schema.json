@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bdf1992/ide/contracts/semantic-program.schema.json",
+  "title": "SEMANTIC_PROGRAM/1",
+  "description": "Admitted canonical program meaning for one declared kernel version. This object may feed projection/runtime/verifier paths only after admission is explicit.",
+  "type": "object",
+  "required": ["protocol", "program_id", "kernel_version", "source_candidate_id", "admission", "ir"],
+  "properties": {
+    "protocol": {"const": "SEMANTIC_PROGRAM/1"},
+    "program_id": {"type": "string", "minLength": 1},
+    "kernel_version": {"type": "string", "minLength": 1},
+    "source_candidate_id": {"type": "string", "minLength": 1},
+    "admission": {
+      "type": "object",
+      "required": ["status", "admitted_by"],
+      "properties": {
+        "status": {"const": "admitted"},
+        "admitted_by": {
+          "type": "object",
+          "required": ["kind", "id"],
+          "properties": {
+            "kind": {"enum": ["human", "deterministic-rule", "kernel-path"]},
+            "id": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        "rule_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "ir": {"type": "object"},
+    "digest": {"type": "string"}
+  },
+  "additionalProperties": false
+}
