@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the canonical Chat IDE shell without creating a second implementation."""
+"""Export a canonical single-file Chat HTML artifact without creating a second implementation."""
 
 from __future__ import annotations
 
@@ -14,13 +14,18 @@ def sha256(data: bytes) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Copy canonical index.html byte-for-byte into an attachable Chat artifact."
+        description="Copy canonical HTML byte-for-byte into an attachable Chat artifact."
     )
-    parser.add_argument("--source", default="index.html", help="Canonical Chat shell input")
+    parser.add_argument("--source", default="index.html", help="Canonical HTML input")
     parser.add_argument(
         "--output",
         default="dist/open-chat-ide-chat.html",
         help="Generated Chat artifact path",
+    )
+    parser.add_argument(
+        "--marker",
+        default="<title>Open Chat IDE</title>",
+        help="UTF-8 marker required in the canonical input before export",
     )
     args = parser.parse_args()
 
@@ -31,8 +36,11 @@ def main() -> int:
         raise SystemExit(f"source not found: {source}")
 
     data = source.read_bytes()
-    if b"<title>Open Chat IDE</title>" not in data:
-        raise SystemExit(f"source does not look like the canonical Open Chat IDE shell: {source}")
+    marker = args.marker.encode("utf-8")
+    if marker not in data:
+        raise SystemExit(
+            f"source does not contain expected marker {args.marker!r}: {source}"
+        )
 
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(data)
