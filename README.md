@@ -59,6 +59,7 @@ Experimental maturity and semantic expressive power are separate axes. Proving P
 - Explorer file selection
 - Multi-file tabs with close/open behavior
 - New-file creation
+- Active-file rename and confirmed delete
 - `Ctrl+P` quick-open
 - `Ctrl+S` save
 - `Ctrl+Enter` run
@@ -70,13 +71,29 @@ Experimental maturity and semantic expressive power are separate axes. Proving P
 - Pyodide-backed Python execution
 - Small shell: `help`, `ls`, `cat FILE`, `clear`, `python FILE`
 - Browser workspace persistence through local storage
+- Portable, versioned `IDE_WORKSPACE/1` export/import
 - Shared IDE state packet to ChatGPT
 - Preview/apply patch seam from ChatGPT
 - Revision-aware patch refusal when a patch declares a stale `base_revision`
+- Optional localhost workbench host and OpenAI-compatible model proposal bridge
 
 ## Persistence
 
-Browser local storage is convenience state, not the durable system of record. The GitHub repository is the durable product source. Workspace export/import and stronger portable persistence should land before the browser workspace is treated as durable project storage.
+Browser local storage is convenience state, not the durable system of record. The GitHub repository is the durable product source. `IDE_WORKSPACE/1` export/import provides a portable snapshot, but does not turn browser state into repository history or silently reconcile divergent revisions.
+
+## Local workbench
+
+The same browser artifact can be hosted on loopback with a dependency-free Python
+adapter:
+
+```bash
+python3 local/server.py
+```
+
+Open `http://127.0.0.1:4310`. See [`local/README.md`](./local/README.md) to connect an
+optional OpenAI-compatible local model. The adapter exposes health and candidate
+proposal HTTP routes; it is not yet an MCP server and it cannot admit semantics,
+apply edits, or grant standing.
 
 ## Agent behavior
 
@@ -94,7 +111,7 @@ Open-source substrate and licensing boundaries are recorded in [`THIRD_PARTY.md`
 
 ## Status
 
-Current IDE baseline: **side-panel prototype with revision-aware chat patching**.
+Current IDE baseline: **side-panel prototype with revision-aware chat patching and portable workspace snapshots**.
 
 Current language/research baseline: **Semantic Microkernel 0.1 architecture is frozen; an executable POC 0.1 implementation candidate exists under `poc/`, with real CPython `ast.parse` S2 checking, independent S3 reconstruction, S4 observation comparison, and a built-in defeat suite**.
 
