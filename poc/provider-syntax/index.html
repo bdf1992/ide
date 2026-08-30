@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Chat IDE — Syntax Provider Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#1e1e1e;--panel:#252526;--line:#3a3a3a;--text:#d4d4d4;--muted:#999;--pass:#8fd18f;--fail:#ff8b8b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,sans-serif}.app{max-width:1180px;margin:0 auto;padding:18px}.head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}.head h1{font-size:20px;margin:0}.head span{color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;min-width:0}.bar{display:flex;gap:8px;align-items:center;padding:8px;border-bottom:1px solid var(--line);flex-wrap:wrap}.bar strong{margin-right:auto}button,select{background:#333;border:1px solid #555;color:var(--text);border-radius:4px;padding:5px 8px;cursor:pointer}textarea,pre{width:100%;margin:0;border:0;background:#171717;color:#ddd;font:12px/1.45 Consolas,monospace}textarea{height:430px;padding:10px;resize:vertical;outline:0}#query{height:90px;border-top:1px solid var(--line)}pre{height:522px;overflow:auto;padding:10px;white-space:pre-wrap;word-break:break-word}.status{margin-top:10px;color:var(--muted)}.status[data-kind=pass]{color:var(--pass)}.status[data-kind=fail]{color:var(--fail)}.note{margin-top:12px;color:var(--muted);font-size:12px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="head"><h1>Syntax Provider Lab</h1><span>CAPABILITY_REQUEST/1 → Tree-sitter provider → CAPABILITY_RESULT/1</span></div>
+  <div class="grid">
+    <section class="panel">
+      <div class="bar"><strong>Source</strong><select id="fixture"><option value="calculator">calculator</option><option value="kanban">kanban</option></select><button id="tree">syntax.tree</button><button id="selfTest">Run acceptance</button></div>
+      <textarea id="source" spellcheck="false"></textarea>
+      <div class="bar"><strong>Tree-sitter query</strong><button id="functions">Functions</button><button id="classes">Classes</button><button id="runQuery">syntax.query</button></div>
+      <textarea id="query" spellcheck="false"></textarea>
+    </section>
+    <section class="panel">
+      <div class="bar"><strong>Bounded result / evidence</strong></div>
+      <pre id="output">No capability executed yet.</pre>
+    </section>
+  </div>
+  <div id="status" class="status">Loading fixture…</div>
+  <div class="note">POC only. This page never mutates the stable IDE workspace and does not grant authority. CDN/provider failure must degrade to a typed failed result.</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@vscode/tree-sitter-wasm@0.3.1/wasm/tree-sitter.js"></script>
+<script src="provider.js"></script>
+<script src="lab.js"></script>
+</body>
+</html>

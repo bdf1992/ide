@@ -24,6 +24,7 @@ Status words:
 | Capability request/result envelopes | SPEC | `contracts/capability-*.schema.json` | request/result shapes only; authority gate/runtime not implemented |
 | Adapter layer | STUB | `src/adapter/` | chat/browser/local/MCP host bindings; no shared adapter runtime yet |
 | Provider layer | STUB | `src/provider/`, `architecture/PROVIDERS.md` | implementation-binding type and target map defined; no shared provider registry/dispatcher yet |
+| Syntax provider | POC | `poc/provider-syntax/` | isolated `syntax.tree`/`syntax.query` Tree-sitter provider candidate; browser acceptance still required before promotion |
 | Workspace module | STUB | `src/workspace/` | boundary extracted conceptually; implementation still embedded in `index.html` |
 | Runtime module | STUB | `src/runtime/` | boundary named; implementation still embedded in stable/P0.1 artifacts |
 | Execution result envelope | SPEC | `contracts/execution-result.schema.json` | result shape only; product runtime does not yet emit this contract |
@@ -61,7 +62,7 @@ The next research closure remains POC 0.1:
 3. correct any boundary/implementation defect;
 4. only then consider promoting semantic mode into the stable IDE shell.
 
-The provider architecture may evolve as a STUB/SPEC in parallel, but it does not bypass this closure or earn an implementation claim.
+Provider POCs may evolve in parallel, but they do not bypass this closure or become stable product behavior without their own browser/provider acceptance evidence.
 
 The POC 0.2 candidate harness may evolve independently as an isolated testbed, but it
 does not bypass this closure or earn integration into `index.html`.
