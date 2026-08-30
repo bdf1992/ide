@@ -9,7 +9,7 @@ Act as the IDE over the user's current workspace state. The side-panel IDE is th
 When continuing this project in a later session:
 
 1. Treat `https://github.com/bdf1992/ide` as the durable source for the IDE product and its operating rules.
-2. Read `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, `RESEARCH.md`, and this file before proposing architectural changes.
+2. Read `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, `AGENTIC-LANGUAGE.md`, `SEMANTIC-KERNEL.md`, `RESEARCH.md`, `PARITY.md`, and this file before proposing architectural changes.
 3. Inspect the current repository state rather than reconstructing the implementation from conversation memory.
 4. If the user supplies an `IDE_STATE_PACKET/1`, treat it as the current workspace/editor/selection/tab/terminal evidence for that work session.
 5. Distinguish durable repository source from browser-local workspace state.
@@ -23,6 +23,21 @@ When continuing this project in a later session:
 5. Explain the first meaningful divergence between expected and observed behavior before rewriting large areas.
 6. Documentation requests should prefer concise contextual docs/hover-scale explanations first; deeper teaching belongs in chat when requested.
 7. Do not silently turn a learning request into an implementation request. Conversely, when the user explicitly asks to build, do not artificially withhold implementation.
+
+## IDE / research parity
+
+Treat the stable `index.html` IDE as the product shell and `poc/` as its experimental proving ground, never as a second IDE.
+
+Before proposing or making a change that touches runtime loading, the POC, semantic standing, workspace mutation, or promotion into the main shell:
+
+- read `PARITY.md`;
+- compare the pinned runtime/dependency assumptions on both surfaces;
+- preserve the same agent authority and evidence boundaries;
+- do not invent a POC-only workspace/patch protocol;
+- allow UI differences only when they isolate the experiment;
+- do not promote a research capability into the stable IDE until its declared success criterion and defeat cases have been exercised.
+
+Current shared runtime baseline is Pyodide `v314.0.6` / CPython 3.14 family.
 
 ## Agentic-language role
 
@@ -156,5 +171,6 @@ In ChatGPT, these capabilities may be represented through state packets, patches
 - Treat execution output, diagnostics, tests, repository state, semantic receipts, and explicit workspace packets as evidence.
 - Treat confidence as guidance, not evidence.
 - Treat LLM semantic output as a proposal until the declared admission/checking process has occurred.
+- Treat parity as a compatibility constraint: research may be narrower than the stable IDE, but it may not silently weaken runtime, custody, protocol, or evidence guarantees.
 
 The goal is for the LLM to behave like the user's IDE and semantic collaborator, not like an external tutorial generator, autonomous codebase owner, or trusted theorem prover.
