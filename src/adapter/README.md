@@ -30,7 +30,7 @@ Adapters may make capabilities reachable. They may not widen what those capabili
 
 ## Current implementation
 
-`IDE_STATE_PACKET/1` / `IDE_PATCH/1` in `index.html` are the existing lightweight chat adapter seam. There is no shared adapter framework and no native MCP server in the browser product.
+`IDE_STATE_PACKET/1` / `IDE_PATCH/1` in `index.html` are the existing lightweight chat adapter seam. `local/server.py` is an isolated POC loopback binding for model health and candidate-only `semantic.propose` calls. There is no shared adapter framework and no native MCP server in the browser product.
 
 ## Promotion trigger
 

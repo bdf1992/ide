@@ -162,5 +162,6 @@ LoRA run.
 - Corpus generator and evaluator: **POC** after local tests pass.
 - Proposal contract: **SPEC**.
 - LoRA weights: **FUTURE** until an actual training run and held-out receipts exist.
-- Stable IDE integration: **FUTURE** and still gated by POC 0.1 closure plus this
-  experiment's own evidence.
+- Candidate transport/display in the optional local workbench: **POC**. Semantic
+  admission, verification, and normal-editor integration remain **FUTURE**, gated by
+  POC 0.1 closure plus this experiment's own evidence.

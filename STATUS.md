@@ -16,10 +16,12 @@ Status words:
 |---|---|---|---|
 | IDE shell | IMPLEMENTED | `index.html` | Monaco/fallback, explorer, tabs, terminal, agent patch seam |
 | Workspace custody/revision | IMPLEMENTED | `index.html` | browser-local state + revision-aware patch refusal |
+| Portable workspace snapshots | IMPLEMENTED | `index.html` | explicit `IDE_WORKSPACE/1` export/import; import confirmation + revision advance |
 | Python runtime | IMPLEMENTED | `index.html` | Pyodide v314.0.6 / CPython browser runtime |
 | Agent operating contract | IMPLEMENTED | `IDE-SKILL.md`, `AGENTS.md` | behavioral contract, not autonomous runtime |
 | Capability layer | STUB | `src/capability/` | transport-neutral names exist; shared implementation not extracted yet |
 | Adapter layer | STUB | `src/adapter/` | future chat/local/MCP bindings; no shared adapter runtime yet |
+| Local workbench adapter | POC | `local/server.py`, `index.html` | optional loopback host + model health/candidate proposal HTTP routes; not MCP |
 | Workspace module | STUB | `src/workspace/` | boundary extracted conceptually; implementation still embedded in `index.html` |
 | Runtime module | STUB | `src/runtime/` | boundary named; implementation still embedded in stable/P0.1 artifacts |
 | Semantic Kernel 0.1 specification | SPEC | `SEMANTIC-KERNEL.md` | canonical accumulator semantics frozen for P0.1 |
@@ -27,7 +29,7 @@ Status words:
 | Semantic POC UI | POC | `poc/semantic-poc.html` | intentionally not stable IDE UI |
 | Projection module | STUB | `src/projection/` | POC has emitter/reconstructor; stable shared module not promoted |
 | Evidence/receipt module | STUB | `src/evidence/` | POC computes standing; shared product evidence layer not promoted |
-| Agent semantic elaboration | FUTURE | `src/agent/`, POC 0.2 | LLM proposal path deliberately not in trusted POC 0.1 loop |
+| Agent semantic elaboration | POC | `local/server.py`, `index.html`, POC 0.2 | optional candidate-only local proposal path; not in trusted POC 0.1 loop |
 | TSR neural elaboration harness | POC | `poc/neural-elaboration/` | deterministic multimodal corpus/evaluator candidate; no trained weights or stable integration claimed |
 | TSR proposal contract | SPEC | `poc/neural-elaboration/contract/` | model-neutral candidate/refusal envelope; model output remains untrusted |
 | TSR custom LoRA weights | FUTURE | issue #7 | training has not been run; no weight or performance claim exists |

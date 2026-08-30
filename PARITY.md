@@ -32,6 +32,9 @@ Examples:
 - `poc/semantic-poc.html` may use plain textareas instead of Monaco because editor fidelity is not part of POC 0.1.
 - POC 0.1 supports only Kernel 0.1 semantics even though the stable IDE can execute general Python through Pyodide.
 - The POC may expose internal IR and standing details more directly than the normal product UI.
+- The optional local workbench may expose bridge/model availability and candidate-only
+  proposal transport that cannot operate in a serverless side-panel preview. The same
+  `index.html` remains usable there; unavailable local capabilities degrade visibly.
 
 These differences must not become permanent competing implementations.
 
@@ -56,6 +59,8 @@ For POC 0.1 this means: do not make Semantic Split part of the normal editor unt
 | Python parser/runtime | CPython via Pyodide | CPython via Pyodide | must match family |
 | Editor | Monaco + fallback | textarea | may differ during experiment |
 | Workspace persistence | localStorage | ephemeral POC state | may differ; POC cannot become durable SoR |
+| Portable workspace | `IDE_WORKSPACE/1` import/export | not applicable | stable IDE owns portable browser snapshots |
+| Local bridge | optional candidate-only HTTP adapter | not required | must not become a second workspace or authority path |
 | Agent authority | proposed edits only | no LLM in trusted loop | must not weaken |
 | Revision safety | IDE_PATCH base revision | not applicable to isolated POC | required when POC mutates workspace |
 | Verification | runtime/tests/evidence | S0-S4 computed standing | must be computed |
