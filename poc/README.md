@@ -2,7 +2,7 @@
 
 `semantic-poc.html` is the executable research artifact for the first experiment defined in `RESEARCH.md`. `semantic-core.js` contains the experiment logic so the UI remains a thin inspection surface.
 
-It intentionally does not replace the stable Open Chat IDE shell yet.
+It intentionally does not replace the stable Open Chat IDE shell yet. It inherits the runtime, authority, custody, and evidence constraints in [`PARITY.md`](../PARITY.md); this directory is a proving ground, not a second IDE.
 
 ## Claim under test
 
@@ -51,6 +51,20 @@ The Personal parser, Python emitter, dialect renderer, and UI are untrusted prod
 The POC trusts the Kernel 0.1 implementation for its stated semantics, CPython's parser supplied by Pyodide for S2, the separate Python-to-Kernel reader for S3, and the comparison logic. This is a translation-validation experiment, not a claim of a fully verified compiler.
 
 Kernel loop bindings are local. Python's leaked final `for` binding is therefore not treated as canonical observable state in POC 0.1; S4 compares declared observations and failure class rather than raw implementation stores.
+
+## IDE parity
+
+POC 0.1 currently shares the stable IDE's Pyodide `v314.0.6` / CPython 3.14 browser runtime baseline.
+
+Deliberate differences are narrow and experimental:
+
+- the POC uses textareas rather than Monaco because editor fidelity is not part of POC 0.1;
+- the POC keeps state ephemeral rather than introducing a second durable workspace model;
+- the POC supports only Kernel 0.1 semantics even though the main IDE can execute ordinary Python.
+
+If POC code begins mutating the user's real IDE workspace, it must use the existing revision-aware workspace/patch authority model rather than creating a separate one.
+
+Semantic Split should not be promoted into `index.html` until POC 0.1 closes with actual browser execution evidence.
 
 ## Current evidence
 
