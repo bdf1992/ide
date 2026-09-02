@@ -1,0 +1,54 @@
+name: Verify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deterministic-baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify canonical Chat artifact export
+        run: python scripts/build_chat_artifact.py
+
+      - name: Verify workspace materialization
+        run: node poc/workspace-materialization/test.js
+
+      - name: Verify skill-build kernel
+        run: node poc/skill-build-kernel/run-tests.mjs
+
+      - name: Verify local-Qwen proposal boundary
+        run: node poc/local-qwen-skill-build/run-tests.mjs
+
+      - name: Verify neural-elaboration testbed
+        run: python -m unittest discover -s poc/neural-elaboration/tests -v
+
+      - name: Verify committed JSON documents
+        run: |
+          for document in \
+            contracts/*.json \
+            examples/core-acceptance/acceptance.json \
+            poc/neural-elaboration/contract/semantic-proposal.schema.json
+          do
+            python -m json.tool "$document" >/dev/null
+          done
