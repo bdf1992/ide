@@ -1,0 +1,18 @@
+Current IDE_STATE_PACKET/1
+{
+  "protocol": "IDE_STATE_PACKET/1",
+  "workspace_revision": 0,
+  "active_file": "",
+  "open_tabs": [],
+  "selection": "",
+  "files": {
+    "main.py": "print('hello from the applied patch')\n",
+    "notes.md": "# Seam fixture workspace\n\nUsed by poc/theia-host/test/seam.test.mjs and the browser app evidence run.\n",
+    "patch.json": "{\n  \"protocol\": \"IDE_PATCH/1\",\n  \"base_revision\": 0,\n  \"proposal_id\": \"fixture-patch-1\",\n  \"proposed_by\": \"seam-test\",\n  \"note\": \"Change the greeting printed by main.py\",\n  \"changes\": [\n    {\n      \"path\": \"main.py\",\n      \"content\": \"print('hello from the applied patch')\\n\"\n    }\n  ]\n}\n"
+  },
+  "terminal": "Microsoft Windows [Version 10.0.26200.9168]\n(c) Microsoft Corporation. All rights reserved.\nc:\\Users\\bdf19\\workstation\\worktrees\\ide\\theia-hosts-the-state-packet-seam\\poc\\theia-host\\fixtures\\workspace>echo seam-terminal-check",
+  "canonical_repo": "https://github.com/bdf1992/ide",
+  "request": "Act as the IDE over this exact workspace. Prefer ordinary IDE primitives and the smallest explainable change."
+}
+Pending IDE_PATCH/1 diff
+(no pending patch)

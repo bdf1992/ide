@@ -1,54 +1,35 @@
-BLOCKED before any yarn/npm command could run.
+Theia 1.75.0 browser app build, poc/theia-host, this session (2026-09-03).
 
-Environment: node v24.11.1 (via `node --version`, this succeeded once). python 3.12.10.
-yarn/npm versions could not be determined — every invocation was refused.
+Environment: node v24.11.1, npm 11.6.2, yarn 1.22.22 (Windows, git-bash).
 
-Reproducible commands tried and their exact results, in this contract session,
-in the worktree C:\Users\bdf19\workstation\worktrees\ide\theia-hosts-the-state-packet-seam:
+Install (yarn install, workspace root, warm yarn cache, clean node_modules/lib/src-gen):
+  wall time: 29s (date +%s before/after: 1788401892 -> 1788401921); yarn reported "Done in 26.56s".
+  node_modules size: 386M (`du -sh node_modules`).
+  top-level node_modules entries: 549 (`find node_modules -maxdepth 1 -type d | wc -l`).
+  no native module was compiled from source: no gyp/prebuild-install/node-gyp-build build lines
+  appear in the install log (keytar, drivelist and other native deps used prebuilt binaries).
+  full log: evidence/yarn-install-fresh.log
 
-  $ npm --version
-  This command requires approval
+Build (tsc for the extension, then `theia build --mode production` for browser-app):
+  wall time: 9s (date +%s before/after: 1788401973 -> 1788401982).
+  browser bundle: "[build/browser] Finished with 0 errors in 1950ms."
+  node/backend bundle: "[build/node] Finished with 0 errors in 1023ms."
+  optional @theia/electron peer dependency skipped (no Electron packages installed or built).
+  full log: evidence/theia-build.log
 
-  $ npm -v
-  This command requires approval
+A prior session in this same contract hit a permission refusal on every npm/yarn
+invocation before any of the above and stopped at BLOCKED (commit f3529f3f). That
+refusal did not recur in this session; the install and build above are the first
+successful run.
 
-  $ yarn --version
-  This command requires approval
-
-  $ node -e "console.log(1+1)"
-  This command requires approval
-
-Contrast — commands that were NOT refused in the same session, run before and
-after the above, ruling out a session-wide shell outage:
-
-  $ echo hello
-  hello
-
-  $ git status
-  On branch spike/theia-hosts-the-state-packet-seam
-  ...
-
-  $ node --version      (first call only; a later retry of this exact command was also refused)
-  v24.11.1
-
-This is not a version mismatch or a missing toolchain on disk — it is a
-permission refusal returned immediately, with no interactive approver
-available to grant it (this is a non-interactive contract-engineer session).
-The refusal was consistent across npm and yarn regardless of flags, and
-regardless of Bash vs PowerShell tool. The one channel that did work is the
-pre-authorized `ws queue transition <task> BLOCKED --reason ...` command
-(only in PowerShell — the Bash tool could not resolve `ws` on PATH at all,
-separate issue, exit 127 "ws: command not found").
-
-Per step 2's blocked protocol: building the upstream theia-ide reference
-example unchanged, or installing an alternate Node/tool version locally
-under poc/theia-host/.tools, both require running npm or yarn — the exact
-thing refused. There is no toolchain command available in this session that
-is not npm or yarn to fall back to (no direct download-and-unpack path was
-attempted, since fetching and running unverified upstream packages by hand
-would be routing around the permission gate rather than working within it).
-
-What would unblock this: either the session's permission mode needs to allow
-npm/yarn (or be run interactively so a human can approve them), or the
-contract needs to hand the install/build step to a session/environment where
-those commands are already permitted.
+Cause found and fixed in this session, not part of the original theia-ide template
+defaults: @theia/core 1.75.0 declares react/react-dom ^19.0.0 as peer dependencies
+and its own compiled browser code requires the bare "react", "react-dom" and
+"react/jsx-runtime" specifiers directly (not only through @theia/core/shared/react).
+The first build attempt failed with 38 esbuild "Could not resolve react..." errors
+because neither browser-app nor the extension declared react/react-dom as real
+dependencies. Fix: added "react": "^19.0.0" and "react-dom": "^19.0.0" to
+browser-app's dependencies and "@types/react"/"@types/react-dom": "^19.0.0" to the
+extension's devDependencies, then reinstalled. The original failing log was
+overwritten by the successful rebuild; the error text is reproduced in this
+session's transcript.

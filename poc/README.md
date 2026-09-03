@@ -72,6 +72,10 @@ Semantic Split should not be promoted into `index.html` until POC 0.1 closes wit
 
 It is not part of Semantic POC 0.1 standing and does not bypass the POC 0.1 closure. The provider lab reuses the durable acceptance fixtures under `examples/core-acceptance/` and remains isolated from `index.html` until browser acceptance earns promotion.
 
+## Theia host spike
+
+`theia-host/` is a separate spike proving whether Theia can host the IDE's state-packet/patch seam as a second host profile; see [`theia-host/README.md`](theia-host/README.md).
+
 ## Current evidence
 
 The source has been statically reviewed against the research contract and the stage boundaries are represented separately in code. This environment cannot execute the browser-hosted Pyodide module, so the browser defeat suite has **not** been claimed as run here.
