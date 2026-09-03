@@ -11,6 +11,7 @@ This repository also contains the agentic-language research system. Changes to l
 3. Prefer the smallest layer that can solve the problem.
 4. Check whether Monaco, xterm.js, Pyodide, Tree-sitter, Git/LSP tooling, or an existing browser API already provides the underlying machinery.
 5. Check `STATUS.md` before assuming a named directory, schema, architecture component, host profile, or provider is implemented.
+6. After changing a pinned dependency version in `index.html`, update `THIRD_PARTY.md` and (where it names that dependency) `PARITY.md` to match, and run `python scripts/check_pins.py` to confirm the three agree.
 
 ## Architecture and status discipline
 
