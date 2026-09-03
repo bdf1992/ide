@@ -1,0 +1,35 @@
+Theia 1.75.0 browser app build, poc/theia-host, this session (2026-09-03).
+
+Environment: node v24.11.1, npm 11.6.2, yarn 1.22.22 (Windows, git-bash).
+
+Install (yarn install, workspace root, warm yarn cache, clean node_modules/lib/src-gen):
+  wall time: 29s (date +%s before/after: 1788401892 -> 1788401921); yarn reported "Done in 26.56s".
+  node_modules size: 386M (`du -sh node_modules`).
+  top-level node_modules entries: 549 (`find node_modules -maxdepth 1 -type d | wc -l`).
+  no native module was compiled from source: no gyp/prebuild-install/node-gyp-build build lines
+  appear in the install log (keytar, drivelist and other native deps used prebuilt binaries).
+  full log: evidence/yarn-install-fresh.log
+
+Build (tsc for the extension, then `theia build --mode production` for browser-app):
+  wall time: 9s (date +%s before/after: 1788401973 -> 1788401982).
+  browser bundle: "[build/browser] Finished with 0 errors in 1950ms."
+  node/backend bundle: "[build/node] Finished with 0 errors in 1023ms."
+  optional @theia/electron peer dependency skipped (no Electron packages installed or built).
+  full log: evidence/theia-build.log
+
+A prior session in this same contract hit a permission refusal on every npm/yarn
+invocation before any of the above and stopped at BLOCKED (commit f3529f3f). That
+refusal did not recur in this session; the install and build above are the first
+successful run.
+
+Cause found and fixed in this session, not part of the original theia-ide template
+defaults: @theia/core 1.75.0 declares react/react-dom ^19.0.0 as peer dependencies
+and its own compiled browser code requires the bare "react", "react-dom" and
+"react/jsx-runtime" specifiers directly (not only through @theia/core/shared/react).
+The first build attempt failed with 38 esbuild "Could not resolve react..." errors
+because neither browser-app nor the extension declared react/react-dom as real
+dependencies. Fix: added "react": "^19.0.0" and "react-dom": "^19.0.0" to
+browser-app's dependencies and "@types/react"/"@types/react-dom": "^19.0.0" to the
+extension's devDependencies, then reinstalled. The original failing log was
+overwritten by the successful rebuild; the error text is reproduced in this
+session's transcript.

@@ -1,0 +1,13 @@
+{
+  "protocol": "IDE_PATCH/1",
+  "base_revision": 0,
+  "proposal_id": "fixture-patch-1",
+  "proposed_by": "seam-test",
+  "note": "Change the greeting printed by main.py",
+  "changes": [
+    {
+      "path": "main.py",
+      "content": "print('hello from the applied patch')\n"
+    }
+  ]
+}

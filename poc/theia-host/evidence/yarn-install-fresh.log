@@ -1,0 +1,14 @@
+yarn install v1.22.22
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+warning bare-fs@4.8.1: The engine "bare" appears to be invalid.
+[3/4] Linking dependencies...
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core@1.75.0" has unmet peer dependency "react@^19.0.0".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core@1.75.0" has unmet peer dependency "react-dom@^19.0.0".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core > react-tooltip@4.5.1" has unmet peer dependency "react@>=16.0.0".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core > react-tooltip@4.5.1" has unmet peer dependency "react-dom@>=16.0.0".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core > react-virtuoso@2.19.1" has unmet peer dependency "react@>=16 || >=17 || >= 18".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core > react-virtuoso@2.19.1" has unmet peer dependency "react-dom@>=16 || >=17 || >= 18".
+warning "workspace-aggregator-348ee57b-f770-4023-bafa-30ac28c180cc > @poc/ide-seam > @theia/core > react-virtuoso > @virtuoso.dev/react-urx@0.2.13" has unmet peer dependency "react@>=16".
+[4/4] Building fresh packages...
+Done in 26.56s.
