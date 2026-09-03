@@ -98,6 +98,8 @@ For any capability intended to be shared product infrastructure, state explicitl
 
 Core acceptance fixtures must remain Chat-compatible. Work-specific fixtures may extend the acceptance set but must not replace the Chat baseline.
 
+Before opening a PR that touches `index.html`, run the Chat artifact build (`python scripts/build_chat_artifact.py`) and the seam test (`node scripts/seam_test.mjs`), which extracts the `<script id="seam">` block and checks it against `contracts/ide-state-packet.schema.json` and `contracts/ide-patch.schema.json` headlessly.
+
 ### Preserve graceful degradation
 
 External browser modules may be blocked by the preview environment. The IDE should fail visibly and retain useful baseline editing/state behavior rather than present a broken blank surface.
