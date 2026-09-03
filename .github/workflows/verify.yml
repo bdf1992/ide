@@ -31,6 +31,11 @@ jobs:
       - name: Verify canonical Chat artifact export
         run: python scripts/build_chat_artifact.py
 
+      - name: Verify STATUS.md STUB/SPEC derivation
+        run: |
+          python -m unittest scripts.test_check_status_derivation -v
+          python scripts/check_status_derivation.py --strict
+
       - name: Verify workspace materialization
         run: node poc/workspace-materialization/test.js
 
