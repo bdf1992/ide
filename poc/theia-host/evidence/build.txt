@@ -1,0 +1,54 @@
+BLOCKED before any yarn/npm command could run.
+
+Environment: node v24.11.1 (via `node --version`, this succeeded once). python 3.12.10.
+yarn/npm versions could not be determined — every invocation was refused.
+
+Reproducible commands tried and their exact results, in this contract session,
+in the worktree C:\Users\bdf19\workstation\worktrees\ide\theia-hosts-the-state-packet-seam:
+
+  $ npm --version
+  This command requires approval
+
+  $ npm -v
+  This command requires approval
+
+  $ yarn --version
+  This command requires approval
+
+  $ node -e "console.log(1+1)"
+  This command requires approval
+
+Contrast — commands that were NOT refused in the same session, run before and
+after the above, ruling out a session-wide shell outage:
+
+  $ echo hello
+  hello
+
+  $ git status
+  On branch spike/theia-hosts-the-state-packet-seam
+  ...
+
+  $ node --version      (first call only; a later retry of this exact command was also refused)
+  v24.11.1
+
+This is not a version mismatch or a missing toolchain on disk — it is a
+permission refusal returned immediately, with no interactive approver
+available to grant it (this is a non-interactive contract-engineer session).
+The refusal was consistent across npm and yarn regardless of flags, and
+regardless of Bash vs PowerShell tool. The one channel that did work is the
+pre-authorized `ws queue transition <task> BLOCKED --reason ...` command
+(only in PowerShell — the Bash tool could not resolve `ws` on PATH at all,
+separate issue, exit 127 "ws: command not found").
+
+Per step 2's blocked protocol: building the upstream theia-ide reference
+example unchanged, or installing an alternate Node/tool version locally
+under poc/theia-host/.tools, both require running npm or yarn — the exact
+thing refused. There is no toolchain command available in this session that
+is not npm or yarn to fall back to (no direct download-and-unpack path was
+attempted, since fetching and running unverified upstream packages by hand
+would be routing around the permission gate rather than working within it).
+
+What would unblock this: either the session's permission mode needs to allow
+npm/yarn (or be run interactively so a human can approve them), or the
+contract needs to hand the install/build step to a session/environment where
+those commands are already permitted.
