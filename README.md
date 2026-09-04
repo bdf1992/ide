@@ -128,3 +128,17 @@ Current host baseline: **Chat is IMPLEMENTED as the portable browser/side-panel 
 The larger concern boundaries under `src/` are intentionally **STUBS**, and the boundary envelopes under `contracts/` are intentionally **SPECS**. Neither directory is a claim that a shared modular runtime, bus, or validator already exists. See [`STATUS.md`](./STATUS.md) for the authoritative implementation-state vocabulary.
 
 POC 0.1 is not declared experimentally complete until that browser/Pyodide suite is actually executed in the supported surface and all required defeat cases pass. Do not expand the kernel merely to make the POC more impressive before that closure.
+
+<!-- lineage:begin — generated from system-cartographer lineage/lineage.yaml. Do not hand-edit. -->
+
+## Where this sits
+
+This is one of 20 repositories on this account whose relations are recorded, with the evidence for each, in [`lineage.yaml`](https://github.com/bdf1992/system-cartographer/blob/claude/access-requirements-zbl1s7/lineage/lineage.yaml). What that record says about this one:
+
+**Claim.** A small in-chat editor that opens in a side panel and reuses proven browser components.
+
+**Checked.** `cd poc/neural-elaboration && python -m pytest -q` — 17 passed, observed 2026-09-04.
+
+**Relations.** None recorded, in either direction. 12 of the 20 repositories are unconnected; that absence is recorded rather than papered over with a plausible edge.
+
+<!-- lineage:end -->
