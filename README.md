@@ -1,8 +1,18 @@
 # Open Chat IDE
 
-A deliberately small, in-chat IDE that opens in ChatGPT's side panel and uses proven open-source browser components instead of inventing a new editor stack.
+A small browser IDE designed for ChatGPT's side panel, with a file explorer, tabs, Python execution, and revision-aware chat patches. It uses Monaco, xterm.js, and Pyodide.
 
-Canonical repository: `https://github.com/bdf1992/ide`
+**State: working side-panel prototype.** The editor and chat patch seam live in `index.html`. Language experiments remain POCs; the shared modules under `src/` are stubs, and stronger Work host integrations remain specifications. [STATUS.md](STATUS.md) owns the detailed implementation ledger.
+
+## Try it
+
+Clone or download this repository and open `index.html` in a browser. Create a file, edit it, and use `Ctrl+Enter` to run Python. Monaco and Pyodide load from external CDNs; when the host blocks those dependencies, fallback editing remains available and Python may be unavailable.
+
+For a Chat attachment, run `python scripts/build_chat_artifact.py` and use `dist/open-chat-ide-chat.html`, the exact exported shell. Host support determines whether it can run in a side panel.
+
+- [Current capabilities](#current-capabilities) — what the prototype does.
+- [Research experiment](poc/README.md) — the separate certifying-projection POC.
+- [Contributing](CONTRIBUTING.md) — development and verification rules.
 
 ## Product invariant
 
