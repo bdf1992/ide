@@ -46,6 +46,14 @@ python scripts/build_chat_artifact.py
 
 The default output is `dist/open-chat-ide-chat.html`. The exporter copies `index.html` byte-for-byte and verifies that the output hash matches the canonical input, so the attachment cannot silently drift into a second product surface.
 
+## Seam test
+
+`index.html` holds the state-packet/patch seam (`buildStatePacket`, `applyPatch`) in one `<script id="seam">` block, so it can run headless against the contracts in `contracts/`:
+
+```bash
+node scripts/seam_test.mjs
+```
+
 Generated `dist/` output is a delivery artifact, not a new source-of-truth. Work-specific providers may strengthen the same IDE when available; they are not required to build or open the Chat artifact.
 
 `python scripts/check_pins.py` checks that the jsdelivr package versions pinned in `index.html` match the versions named in `THIRD_PARTY.md` and `PARITY.md`, so those documents cannot silently drift from the actual pins.
