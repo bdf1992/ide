@@ -1,0 +1,35 @@
+{
+  "name": "@poc/ide-seam",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Theia extension emitting IDE_STATE_PACKET/1 and applying IDE_PATCH/1 for the Open Chat IDE seam",
+  "license": "MIT",
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/ide-seam-frontend-module"
+    }
+  ],
+  "dependencies": {
+    "@theia/core": "1.75.0",
+    "@theia/editor": "1.75.0",
+    "@theia/filesystem": "1.75.0",
+    "@theia/workspace": "1.75.0",
+    "@theia/terminal": "1.75.0",
+    "@theia/task": "1.75.0",
+    "@theia/process": "1.75.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.4.5",
+    "rimraf": "^5.0.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  },
+  "scripts": {
+    "prepare": "yarn clean && yarn build",
+    "clean": "rimraf lib",
+    "build": "tsc -p tsconfig.json"
+  },
+  "files": [
+    "lib"
+  ]
+}

@@ -1,0 +1,9 @@
+Could not resolve optional peer dependency '@theia/electron'. Skipping...
+[build/browser] Build started
+
+[build/browser] Finished with 0 errors in 603ms.
+
+[build/node] Build started
+
+[build/node] Finished with 0 errors in 259ms.
+

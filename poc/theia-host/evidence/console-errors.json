@@ -1,0 +1,8 @@
+[
+  "console.warning: 2026-09-03T03:15:26.738Z core:ApplicationShell WARN Widget was activated, but did not accept focus after 2000ms: ide-seam:seam-widget",
+  "console.warning: [.WebGL-0x512c104fce00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "console.warning: [.WebGL-0x512c104fce00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "console.warning: [.WebGL-0x512c104fce00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+  "console.warning: [.WebGL-0x512c104fce00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+  "console.warning: 2026-09-03T03:16:35.427Z core:ApplicationShell WARN Widget was activated, but did not accept focus after 2000ms: ide-seam:seam-widget"
+]

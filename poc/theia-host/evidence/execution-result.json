@@ -1,0 +1,16 @@
+{
+  "protocol": "EXECUTION_RESULT/1",
+  "execution_id": "exec-1788405371886",
+  "runtime": {
+    "kind": "other",
+    "version": "system-python"
+  },
+  "status": "success",
+  "error": null,
+  "observations": [
+    {
+      "exitCode": 0
+    }
+  ],
+  "program_id": "main.py"
+}

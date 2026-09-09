@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "theia-host-spike",
+  "version": "0.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "extension",
+    "browser-app"
+  ],
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  },
+  "scripts": {
+    "build": "yarn workspace browser-app run bundle",
+    "start": "yarn workspace browser-app run start"
+  }
+}

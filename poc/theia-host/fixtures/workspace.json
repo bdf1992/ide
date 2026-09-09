@@ -1,0 +1,7 @@
+{
+  "revision": 0,
+  "files": {
+    "main.py": "print('hello from the seam fixture workspace')\n",
+    "notes.md": "# Seam fixture workspace\n\nUsed by poc/theia-host/test/seam.test.mjs and the browser app evidence run.\n"
+  }
+}

@@ -1,0 +1,1036 @@
+{
+  "total": 727,
+  "mitCount": 556,
+  "eplCount": 25,
+  "nonMitCount": 146,
+  "epl": [
+    {
+      "key": "@theia/application-manager@1.75.0",
+      "name": "@theia/application-manager",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/application-package@1.75.0",
+      "name": "@theia/application-package",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/bundle-plugin@1.75.0",
+      "name": "@theia/bundle-plugin",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/cli@1.75.0",
+      "name": "@theia/cli",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/core@1.75.0",
+      "name": "@theia/core",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/editor@1.75.0",
+      "name": "@theia/editor",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/ffmpeg@1.75.0",
+      "name": "@theia/ffmpeg",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/file-search@1.75.0",
+      "name": "@theia/file-search",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/filesystem@1.75.0",
+      "name": "@theia/filesystem",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/localization-manager@1.75.0",
+      "name": "@theia/localization-manager",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/markers@1.75.0",
+      "name": "@theia/markers",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/messages@1.75.0",
+      "name": "@theia/messages",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/monaco@1.75.0",
+      "name": "@theia/monaco",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/navigator@1.75.0",
+      "name": "@theia/navigator",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/outline-view@1.75.0",
+      "name": "@theia/outline-view",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/ovsx-client@1.75.0",
+      "name": "@theia/ovsx-client",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/plugin-utils@1.75.0",
+      "name": "@theia/plugin-utils",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/preferences@1.75.0",
+      "name": "@theia/preferences",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/process@1.75.0",
+      "name": "@theia/process",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/request@1.75.0",
+      "name": "@theia/request",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/task@1.75.0",
+      "name": "@theia/task",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/terminal@1.75.0",
+      "name": "@theia/terminal",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/userstorage@1.75.0",
+      "name": "@theia/userstorage",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/variable-resolver@1.75.0",
+      "name": "@theia/variable-resolver",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    },
+    {
+      "key": "@theia/workspace@1.75.0",
+      "name": "@theia/workspace",
+      "version": "1.75.0",
+      "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0"
+    }
+  ],
+  "nonMit": [
+    {
+      "key": "@isaacs/cliui@8.0.2",
+      "name": "@isaacs/cliui",
+      "version": "8.0.2",
+      "license": "ISC"
+    },
+    {
+      "key": "@isaacs/fs-minipass@4.0.1",
+      "name": "@isaacs/fs-minipass",
+      "version": "4.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "@jspm/core@2.1.0",
+      "name": "@jspm/core",
+      "version": "2.1.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "@lumino/algorithm@2.0.5",
+      "name": "@lumino/algorithm",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/collections@2.0.5",
+      "name": "@lumino/collections",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/commands@2.3.4",
+      "name": "@lumino/commands",
+      "version": "2.3.4",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/coreutils@2.2.3",
+      "name": "@lumino/coreutils",
+      "version": "2.2.3",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/disposable@2.1.6",
+      "name": "@lumino/disposable",
+      "version": "2.1.6",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/domutils@2.0.5",
+      "name": "@lumino/domutils",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/dragdrop@2.1.9",
+      "name": "@lumino/dragdrop",
+      "version": "2.1.9",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/keyboard@2.0.5",
+      "name": "@lumino/keyboard",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/messaging@2.0.5",
+      "name": "@lumino/messaging",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/properties@2.0.5",
+      "name": "@lumino/properties",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/signaling@2.1.6",
+      "name": "@lumino/signaling",
+      "version": "2.1.6",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/virtualdom@2.0.5",
+      "name": "@lumino/virtualdom",
+      "version": "2.0.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@lumino/widgets@2.7.5",
+      "name": "@lumino/widgets",
+      "version": "2.7.5",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "@malept/cross-spawn-promise@2.0.0",
+      "name": "@malept/cross-spawn-promise",
+      "version": "2.0.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "@poc/ide-seam@0.0.0",
+      "name": "@poc/ide-seam",
+      "version": "0.0.0",
+      "license": "UNLICENSED"
+    },
+    {
+      "key": "@puppeteer/browsers@3.0.4",
+      "name": "@puppeteer/browsers",
+      "version": "3.0.4",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "@stroncium/procfs@1.2.1",
+      "name": "@stroncium/procfs",
+      "version": "1.2.1",
+      "license": "CC0-1.0"
+    },
+    {
+      "key": "@vscode/codicons@0.0.45",
+      "name": "@vscode/codicons",
+      "version": "0.0.45",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "key": "@yarnpkg/lockfile@1.1.0",
+      "name": "@yarnpkg/lockfile",
+      "version": "1.1.0",
+      "license": "BSD-2-Clause"
+    },
+    {
+      "key": "abbrev@4.0.0",
+      "name": "abbrev",
+      "version": "4.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "anymatch@3.1.3",
+      "name": "anymatch",
+      "version": "3.1.3",
+      "license": "ISC"
+    },
+    {
+      "key": "argparse@2.0.1",
+      "name": "argparse",
+      "version": "2.0.1",
+      "license": "Python-2.0"
+    },
+    {
+      "key": "b4a@1.8.1",
+      "name": "b4a",
+      "version": "1.8.1",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bare-events@2.9.2",
+      "name": "bare-events",
+      "version": "2.9.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bare-fs@4.8.1",
+      "name": "bare-fs",
+      "version": "4.8.1",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bare-path@3.1.2",
+      "name": "bare-path",
+      "version": "3.1.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bare-stream@2.13.4",
+      "name": "bare-stream",
+      "version": "2.13.4",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bare-url@2.5.4",
+      "name": "bare-url",
+      "version": "2.5.4",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "bent@7.3.12",
+      "name": "bent",
+      "version": "7.3.12",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "big-integer@1.6.52",
+      "name": "big-integer",
+      "version": "1.6.52",
+      "license": "Unlicense"
+    },
+    {
+      "key": "browser-app@0.0.0",
+      "name": "browser-app",
+      "version": "0.0.0",
+      "license": "UNLICENSED"
+    },
+    {
+      "key": "browser-stdout@1.3.1",
+      "name": "browser-stdout",
+      "version": "1.3.1",
+      "license": "ISC"
+    },
+    {
+      "key": "buffers@0.1.1",
+      "name": "buffers",
+      "version": "0.1.1",
+      "license": "Custom: http://github.com/substack/node-bufferlist"
+    },
+    {
+      "key": "bytesish@0.4.4",
+      "name": "bytesish",
+      "version": "0.4.4",
+      "license": "(Apache-2.0 AND MIT)"
+    },
+    {
+      "key": "caseless@0.12.0",
+      "name": "caseless",
+      "version": "0.12.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "chainsaw@0.1.0",
+      "name": "chainsaw",
+      "version": "0.1.0",
+      "license": "MIT*"
+    },
+    {
+      "key": "chownr@1.1.4",
+      "name": "chownr",
+      "version": "1.1.4",
+      "license": "ISC"
+    },
+    {
+      "key": "chownr@3.0.0",
+      "name": "chownr",
+      "version": "3.0.0",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "chromium-bidi@16.0.1",
+      "name": "chromium-bidi",
+      "version": "16.0.1",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "cliui@6.0.0",
+      "name": "cliui",
+      "version": "6.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "cliui@8.0.1",
+      "name": "cliui",
+      "version": "8.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "comlink@4.4.2",
+      "name": "comlink",
+      "version": "4.4.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "detect-libc@2.1.2",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "devtools-protocol@0.0.1624250",
+      "name": "devtools-protocol",
+      "version": "0.0.1624250",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "diff@7.0.0",
+      "name": "diff",
+      "version": "7.0.0",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "dompurify@3.2.7",
+      "name": "dompurify",
+      "version": "3.2.7",
+      "license": "(MPL-2.0 OR Apache-2.0)"
+    },
+    {
+      "key": "dompurify@3.4.14",
+      "name": "dompurify",
+      "version": "3.4.14",
+      "license": "(MPL-2.0 OR Apache-2.0)"
+    },
+    {
+      "key": "drivelist@12.0.2",
+      "name": "drivelist",
+      "version": "12.0.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "duplexer2@0.1.4",
+      "name": "duplexer2",
+      "version": "0.1.4",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "entities@4.5.0",
+      "name": "entities",
+      "version": "4.5.0",
+      "license": "BSD-2-Clause"
+    },
+    {
+      "key": "events-universal@1.0.1",
+      "name": "events-universal",
+      "version": "1.0.1",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "expand-template@2.0.3",
+      "name": "expand-template",
+      "version": "2.0.3",
+      "license": "(MIT OR WTFPL)"
+    },
+    {
+      "key": "exponential-backoff@3.1.3",
+      "name": "exponential-backoff",
+      "version": "3.1.3",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "fast-uri@3.1.7",
+      "name": "fast-uri",
+      "version": "3.1.7",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "fastq@1.20.3",
+      "name": "fastq",
+      "version": "1.20.3",
+      "license": "ISC"
+    },
+    {
+      "key": "find-yarn-workspace-root@2.0.0",
+      "name": "find-yarn-workspace-root",
+      "version": "2.0.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "flat@5.0.2",
+      "name": "flat",
+      "version": "5.0.2",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "font-awesome@4.7.0",
+      "name": "font-awesome",
+      "version": "4.7.0",
+      "license": "(OFL-1.1 AND MIT)"
+    },
+    {
+      "key": "foreground-child@3.3.1",
+      "name": "foreground-child",
+      "version": "3.3.1",
+      "license": "ISC"
+    },
+    {
+      "key": "fs.realpath@1.0.0",
+      "name": "fs.realpath",
+      "version": "1.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "fstream@1.0.12",
+      "name": "fstream",
+      "version": "1.0.12",
+      "license": "ISC"
+    },
+    {
+      "key": "get-caller-file@2.0.5",
+      "name": "get-caller-file",
+      "version": "2.0.5",
+      "license": "ISC"
+    },
+    {
+      "key": "glob@10.5.0",
+      "name": "glob",
+      "version": "10.5.0",
+      "license": "ISC"
+    },
+    {
+      "key": "glob@7.2.3",
+      "name": "glob",
+      "version": "7.2.3",
+      "license": "ISC"
+    },
+    {
+      "key": "glob@8.1.0",
+      "name": "glob",
+      "version": "8.1.0",
+      "license": "ISC"
+    },
+    {
+      "key": "glob-parent@5.1.2",
+      "name": "glob-parent",
+      "version": "5.1.2",
+      "license": "ISC"
+    },
+    {
+      "key": "global-agent@3.0.0",
+      "name": "global-agent",
+      "version": "3.0.0",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "graceful-fs@4.2.11",
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "license": "ISC"
+    },
+    {
+      "key": "http-cache-semantics@4.2.0",
+      "name": "http-cache-semantics",
+      "version": "4.2.0",
+      "license": "BSD-2-Clause"
+    },
+    {
+      "key": "idb@4.0.5",
+      "name": "idb",
+      "version": "4.0.5",
+      "license": "ISC"
+    },
+    {
+      "key": "ieee754@1.2.1",
+      "name": "ieee754",
+      "version": "1.2.1",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "inflight@1.0.6",
+      "name": "inflight",
+      "version": "1.0.6",
+      "license": "ISC"
+    },
+    {
+      "key": "inherits@2.0.4",
+      "name": "inherits",
+      "version": "2.0.4",
+      "license": "ISC"
+    },
+    {
+      "key": "ini@1.3.8",
+      "name": "ini",
+      "version": "1.3.8",
+      "license": "ISC"
+    },
+    {
+      "key": "isexe@2.0.0",
+      "name": "isexe",
+      "version": "2.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "isexe@4.0.0",
+      "name": "isexe",
+      "version": "4.0.0",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "jackspeak@3.4.3",
+      "name": "jackspeak",
+      "version": "3.4.3",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "jschardet@2.3.0",
+      "name": "jschardet",
+      "version": "2.3.0",
+      "license": "LGPL-2.1+"
+    },
+    {
+      "key": "json-stringify-safe@5.0.1",
+      "name": "json-stringify-safe",
+      "version": "5.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "jsonify@0.0.1",
+      "name": "jsonify",
+      "version": "0.0.1",
+      "license": "Public Domain"
+    },
+    {
+      "key": "listenercount@1.0.1",
+      "name": "listenercount",
+      "version": "1.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "lru-cache@10.4.3",
+      "name": "lru-cache",
+      "version": "10.4.3",
+      "license": "ISC"
+    },
+    {
+      "key": "markdown-it-anchor@9.2.1",
+      "name": "markdown-it-anchor",
+      "version": "9.2.1",
+      "license": "Unlicense"
+    },
+    {
+      "key": "minimatch@10.2.6",
+      "name": "minimatch",
+      "version": "10.2.6",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "minimatch@3.1.5",
+      "name": "minimatch",
+      "version": "3.1.5",
+      "license": "ISC"
+    },
+    {
+      "key": "minimatch@5.1.9",
+      "name": "minimatch",
+      "version": "5.1.9",
+      "license": "ISC"
+    },
+    {
+      "key": "minimatch@9.0.9",
+      "name": "minimatch",
+      "version": "9.0.9",
+      "license": "ISC"
+    },
+    {
+      "key": "minipass@7.1.3",
+      "name": "minipass",
+      "version": "7.1.3",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "nano@10.1.4",
+      "name": "nano",
+      "version": "10.1.4",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "nopt@9.0.0",
+      "name": "nopt",
+      "version": "9.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "once@1.4.0",
+      "name": "once",
+      "version": "1.4.0",
+      "license": "ISC"
+    },
+    {
+      "key": "opener@1.5.2",
+      "name": "opener",
+      "version": "1.5.2",
+      "license": "(WTFPL OR MIT)"
+    },
+    {
+      "key": "package-json-from-dist@1.0.1",
+      "name": "package-json-from-dist",
+      "version": "1.0.1",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "path-scurry@1.11.1",
+      "name": "path-scurry",
+      "version": "1.11.1",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "picocolors@1.1.1",
+      "name": "picocolors",
+      "version": "1.1.1",
+      "license": "ISC"
+    },
+    {
+      "key": "proc-log@6.1.0",
+      "name": "proc-log",
+      "version": "6.1.0",
+      "license": "ISC"
+    },
+    {
+      "key": "puppeteer@25.1.0",
+      "name": "puppeteer",
+      "version": "25.1.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "puppeteer-core@25.1.0",
+      "name": "puppeteer-core",
+      "version": "25.1.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "puppeteer-to-istanbul@1.4.0",
+      "name": "puppeteer-to-istanbul",
+      "version": "1.4.0",
+      "license": "ISC"
+    },
+    {
+      "key": "qs@6.15.3",
+      "name": "qs",
+      "version": "6.15.3",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "qs@6.16.0",
+      "name": "qs",
+      "version": "6.16.0",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "rc@1.2.8",
+      "name": "rc",
+      "version": "1.2.8",
+      "license": "(BSD-2-Clause OR MIT OR Apache-2.0)"
+    },
+    {
+      "key": "reflect-metadata@0.2.2",
+      "name": "reflect-metadata",
+      "version": "0.2.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "require-main-filename@2.0.0",
+      "name": "require-main-filename",
+      "version": "2.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "rimraf@2.6.3",
+      "name": "rimraf",
+      "version": "2.6.3",
+      "license": "ISC"
+    },
+    {
+      "key": "rimraf@2.7.1",
+      "name": "rimraf",
+      "version": "2.7.1",
+      "license": "ISC"
+    },
+    {
+      "key": "rimraf@5.0.10",
+      "name": "rimraf",
+      "version": "5.0.10",
+      "license": "ISC"
+    },
+    {
+      "key": "roarr@2.15.4",
+      "name": "roarr",
+      "version": "2.15.4",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "semver@6.3.1",
+      "name": "semver",
+      "version": "6.3.1",
+      "license": "ISC"
+    },
+    {
+      "key": "semver@7.8.5",
+      "name": "semver",
+      "version": "7.8.5",
+      "license": "ISC"
+    },
+    {
+      "key": "serialize-javascript@6.0.2",
+      "name": "serialize-javascript",
+      "version": "6.0.2",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "set-blocking@2.0.0",
+      "name": "set-blocking",
+      "version": "2.0.0",
+      "license": "ISC"
+    },
+    {
+      "key": "setprototypeof@1.2.0",
+      "name": "setprototypeof",
+      "version": "1.2.0",
+      "license": "ISC"
+    },
+    {
+      "key": "signal-exit@3.0.7",
+      "name": "signal-exit",
+      "version": "3.0.7",
+      "license": "ISC"
+    },
+    {
+      "key": "signal-exit@4.1.0",
+      "name": "signal-exit",
+      "version": "4.1.0",
+      "license": "ISC"
+    },
+    {
+      "key": "sprintf-js@1.1.3",
+      "name": "sprintf-js",
+      "version": "1.1.3",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "key": "sumchecker@3.0.1",
+      "name": "sumchecker",
+      "version": "3.0.1",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "tar@7.5.22",
+      "name": "tar",
+      "version": "7.5.22",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "text-decoder@1.2.7",
+      "name": "text-decoder",
+      "version": "1.2.7",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "theia-host-spike@0.0.0",
+      "name": "theia-host-spike",
+      "version": "0.0.0",
+      "license": "UNLICENSED"
+    },
+    {
+      "key": "traverse@0.3.9",
+      "name": "traverse",
+      "version": "0.3.9",
+      "license": "MIT*"
+    },
+    {
+      "key": "tslib@2.8.1",
+      "name": "tslib",
+      "version": "2.8.1",
+      "license": "0BSD"
+    },
+    {
+      "key": "tunnel-agent@0.6.0",
+      "name": "tunnel-agent",
+      "version": "0.6.0",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "type-fest@0.13.1",
+      "name": "type-fest",
+      "version": "0.13.1",
+      "license": "(MIT OR CC0-1.0)"
+    },
+    {
+      "key": "type-fest@0.21.3",
+      "name": "type-fest",
+      "version": "0.21.3",
+      "license": "(MIT OR CC0-1.0)"
+    },
+    {
+      "key": "typescript@5.4.5",
+      "name": "typescript",
+      "version": "5.4.5",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "typescript@5.9.3",
+      "name": "typescript",
+      "version": "5.9.3",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "union@0.5.0",
+      "name": "union",
+      "version": "0.5.0",
+      "license": "MIT*"
+    },
+    {
+      "key": "uri-js@4.4.1",
+      "name": "uri-js",
+      "version": "4.4.1",
+      "license": "BSD-2-Clause"
+    },
+    {
+      "key": "v8-to-istanbul@1.2.1",
+      "name": "v8-to-istanbul",
+      "version": "1.2.1",
+      "license": "ISC"
+    },
+    {
+      "key": "webdriver-bidi-protocol@0.4.2",
+      "name": "webdriver-bidi-protocol",
+      "version": "0.4.2",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "which@2.0.2",
+      "name": "which",
+      "version": "2.0.2",
+      "license": "ISC"
+    },
+    {
+      "key": "which@6.0.1",
+      "name": "which",
+      "version": "6.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "which-module@2.0.1",
+      "name": "which-module",
+      "version": "2.0.1",
+      "license": "ISC"
+    },
+    {
+      "key": "workerpool@9.3.4",
+      "name": "workerpool",
+      "version": "9.3.4",
+      "license": "Apache-2.0"
+    },
+    {
+      "key": "wrappy@1.0.2",
+      "name": "wrappy",
+      "version": "1.0.2",
+      "license": "ISC"
+    },
+    {
+      "key": "write-file-atomic@2.4.3",
+      "name": "write-file-atomic",
+      "version": "2.4.3",
+      "license": "ISC"
+    },
+    {
+      "key": "y18n@4.0.3",
+      "name": "y18n",
+      "version": "4.0.3",
+      "license": "ISC"
+    },
+    {
+      "key": "y18n@5.0.8",
+      "name": "y18n",
+      "version": "5.0.8",
+      "license": "ISC"
+    },
+    {
+      "key": "yallist@5.0.0",
+      "name": "yallist",
+      "version": "5.0.0",
+      "license": "BlueOak-1.0.0"
+    },
+    {
+      "key": "yaml@2.9.0",
+      "name": "yaml",
+      "version": "2.9.0",
+      "license": "ISC"
+    },
+    {
+      "key": "yargs-parser@18.1.3",
+      "name": "yargs-parser",
+      "version": "18.1.3",
+      "license": "ISC"
+    },
+    {
+      "key": "yargs-parser@21.1.1",
+      "name": "yargs-parser",
+      "version": "21.1.1",
+      "license": "ISC"
+    }
+  ]
+}
